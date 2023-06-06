@@ -1,0 +1,14 @@
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\bin\Debug\net6.0\Service.deps.json
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\bin\Debug\net6.0\Service.runtimeconfig.json
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\bin\Debug\net6.0\Service.dll
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\bin\Debug\net6.0\Service.pdb
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\Service.csproj.AssemblyReference.cache
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\Service.AssemblyInfoInputs.cache
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\Service.AssemblyInfo.cs
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\Service.csproj.CoreCompileInputs.cache
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\Service.dll
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\refint\Service.dll
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\Service.pdb
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\Service.genruntimeconfig.cache
+E:\Learn\Learn_k5\PRN211\project\BusManagement\Service\obj\Debug\net6.0\ref\Service.dll
