@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\Services.csproj": {}
+    "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\Services\\Services.csproj": {}
   },
   "projects": {
-    "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\Services.csproj": {
+    "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\Services.csproj",
+        "projectUniqueName": "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\obj\\",
+        "projectPath": "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\localboss\\.nuget\\packages\\",
+        "outputPath": "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\localboss\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

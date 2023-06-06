@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\BusManagement.csproj": {}
+    "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {}
   },
   "projects": {
-    "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\BusManagement.csproj": {
+    "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\BusManagement.csproj",
+        "projectUniqueName": "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
         "projectName": "BusManagement",
-        "projectPath": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\BusManagement.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\obj\\",
+        "projectPath": "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
+        "packagesPath": "C:\\Users\\localboss\\.nuget\\packages\\",
+        "outputPath": "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\localboss\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
