@@ -145,3 +145,4 @@ D:\#HỌC ĐÊ\PRN211\Assignment\bus-management\BusManagement\BusManagement\obj\
 D:\#HỌC ĐÊ\PRN211\Assignment\bus-management\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.genruntimeconfig.cache
 D:\#HỌC ĐÊ\PRN211\Assignment\bus-management\BusManagement\BusManagement\obj\Debug\net6.0-windows\ref\BusManagement.dll
 D:\#HỌC ĐÊ\PRN211\Assignment\bus-management\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.AddDriver.resources
+D:\#HỌC ĐÊ\PRN211\Assignment\bus-management\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.Properties.Resources.resources
