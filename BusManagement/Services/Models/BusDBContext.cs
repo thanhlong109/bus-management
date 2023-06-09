@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -28,20 +27,10 @@ namespace Services.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(GetConnectionString());
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=DESKTOP-KLF6DJS\\SQLEXPRESS;uid=sa;pwd=12345;database=BusDB;TrustServerCertificate=True");
             }
         }
-
-        private string GetConnectionString()
-        {
-            IConfiguration config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", true, true)
-                .Build();
-            var strConn = config["ConnectionStrings:BusDB"];
-            return strConn;
-        }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -68,6 +57,8 @@ namespace Services.Models
                 entity.Property(e => e.FullName)
                     .HasMaxLength(40)
                     .HasColumnName("full_name");
+
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
 
                 entity.Property(e => e.Password)
                     .HasMaxLength(30)
@@ -105,6 +96,8 @@ namespace Services.Models
                 entity.Property(e => e.ExpirationDate)
                     .HasColumnType("datetime")
                     .HasColumnName("expiration_date");
+
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
 
                 entity.Property(e => e.ManufacturingDate)
                     .HasColumnType("datetime")
@@ -145,6 +138,8 @@ namespace Services.Models
                 entity.Property(e => e.EndTime).HasColumnName("end_time");
 
                 entity.Property(e => e.EstimatedTime).HasColumnName("estimated_time");
+
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
 
                 entity.Property(e => e.RoutesName)
                     .HasMaxLength(50)
@@ -196,6 +191,8 @@ namespace Services.Models
                     .HasMaxLength(10)
                     .HasColumnName("gender");
 
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
+
                 entity.Property(e => e.Salary)
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("salary");
@@ -227,6 +224,8 @@ namespace Services.Models
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .HasColumnName("email");
+
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
 
                 entity.Property(e => e.PhoneNumber)
                     .HasMaxLength(12)
