@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {}
+    "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\BusManagement.csproj": {}
   },
   "projects": {
-    "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {
+    "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\BusManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
+        "projectUniqueName": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\BusManagement.csproj",
         "projectName": "BusManagement",
-        "projectPath": "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
-        "packagesPath": "C:\\Users\\localboss\\.nuget\\packages\\",
-        "outputPath": "E:\\Chuyen_nganh_5\\PRN211_SE1738\\BusManagement\\bus-management\\BusManagement\\BusManagement\\obj\\",
+        "projectPath": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\BusManagement.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\BusManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\localboss\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\Services.csproj": {
+                "projectPath": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\Services.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -58,7 +62,92 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\Services.csproj",
+        "projectName": "Services",
+        "projectPath": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "E:\\Learn\\Learn_k5\\PRN211\\project\\BusManagement\\Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

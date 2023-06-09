@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [BusDB]    Script Date: 6/6/2023 9:46:43 PM **/
+/****** Object:  Database [BusDB]    Script Date: 6/6/2023 9:46:43 PM ******/
 CREATE DATABASE [BusDB]
 GO
 ALTER DATABASE [BusDB] SET COMPATIBILITY_LEVEL = 150

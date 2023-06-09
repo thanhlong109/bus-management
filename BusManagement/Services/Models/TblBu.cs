@@ -21,6 +21,7 @@ namespace Services.Models
         public DateTime? ExpirationDate { get; set; }
         public int? PeriodicMaintenance { get; set; }
         public string RoutesId { get; set; }
+        public bool? IsActive { get; set; }
 
         public virtual TblBusRoute Routes { get; set; }
         public virtual ICollection<TblDriver> TblDrivers { get; set; }
