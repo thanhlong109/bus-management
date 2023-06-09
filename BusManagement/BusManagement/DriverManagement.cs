@@ -18,10 +18,14 @@ namespace BusManagement
         {
             InitializeComponent();
             btnDriverManage.Enabled = false;
+            dgvDriver.ReadOnly = true;
+
             _driverRepository = new DriverRepository();
 
             var listDriver = _driverRepository.GetAll().ToList();
             dgvDriver.DataSource = listDriver;
         }
     }
+
+
 }

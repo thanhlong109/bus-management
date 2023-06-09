@@ -151,7 +151,7 @@
             groupBox1.Size = new Size(463, 62);
             groupBox1.TabIndex = 14;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Tìm Kiếm Thông Tin Tuyến Xe";
+            groupBox1.Text = "Tìm Kiếm Thông Tin Tài Xế";
             // 
             // btnSearch
             // 
