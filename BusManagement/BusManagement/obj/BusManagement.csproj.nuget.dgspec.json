@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {}
+    "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {}
   },
   "projects": {
-    "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {
+    "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
+        "projectUniqueName": "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
         "projectName": "BusManagement",
-        "projectPath": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\BusManagement\\obj\\",
+        "projectPath": "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
+        "packagesPath": "C:\\Users\\localboss\\.nuget\\packages\\",
+        "outputPath": "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\BusManagement\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\localboss\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj": {
-                "projectPath": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj"
+              "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\Services\\Services.csproj": {
+                "projectPath": "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\Services\\Services.csproj"
               }
             }
           }
@@ -70,21 +66,17 @@
         }
       }
     },
-    "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj": {
+    "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj",
+        "projectUniqueName": "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\obj\\",
+        "projectPath": "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\localboss\\.nuget\\packages\\",
+        "outputPath": "E:\\Chuyen_nganh_5\\Bus-management\\BusManagement\\Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\localboss\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
