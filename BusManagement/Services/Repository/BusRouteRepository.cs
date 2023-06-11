@@ -9,6 +9,5 @@ namespace Services.Repository
 {
     public class BusRouteRepository :BaseRepository<TblBusRoute>
     {
-
     }
 }

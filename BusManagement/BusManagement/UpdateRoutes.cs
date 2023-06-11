@@ -12,19 +12,32 @@ using System.Windows.Forms;
 
 namespace BusManagement
 {
-    public partial class AddRoutes : Form
+    public partial class UpdateRoutes : Form
     {
-        BusRouteRepository routeRepo;
+        TblBusRoute routePara;
         TransportUnitRepository transportUnitRepo;
+        BusRouteRepository routeRepo;
         Util u;
-        public AddRoutes()
+        public UpdateRoutes(TblBusRoute route)
         {
+            routePara = route;
             InitializeComponent();
-            routeRepo = new BusRouteRepository();
             transportUnitRepo = new TransportUnitRepository();
-            LoadCombobox();
+            routeRepo = new BusRouteRepository();
+            LoadData();
             u = new Util();
-
+        }
+        private void LoadData()
+        {
+            LoadCombobox();
+            txtFrom.Text = routePara.StartPoint;
+            txtTo.Text = routePara.EndPoint;
+            txtName.Text = routePara.RoutesName;
+            txtRoutesId.Text = routePara.RoutesId;
+            txtRoutesId.Enabled = false;
+            mTxtStartTime.Text = routePara.StartTime.ToString();
+            mTxtEndTime.Text = routePara.EndTime.ToString();
+            mTxtBreakTime.Text = routePara.EstimatedTime.ToString();
         }
         private void LoadCombobox()
         {
@@ -32,34 +45,8 @@ namespace BusManagement
             cbb.DisplayMember = "TransportUnitName";
             cbb.ValueMember = "TransportUnitId";
             cbb.DataSource = list;
+            cbb.SelectedValue = routePara.TransportUnitId;
         }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            var route = TakeInputValid();
-
-            if (route != null)
-            {
-                var route2 = routeRepo.GetAll().Where(p => p.RoutesId.Equals(route.RoutesId)).FirstOrDefault();
-                if(route2 ==null)
-                {
-                    routeRepo.Create(route);
-                    this.Close();
-                    u.ShowNoiceBox("Tạo thành công!");
-                }
-                else
-                {
-                    u.ShowNoiceBox("Mã Tuyến đã tồn tại!");
-                }
-                
-            }
-        }
-
         private TblBusRoute TakeInputValid()
         {
             txtFrom.Text = txtFrom.Text.Trim();
@@ -118,20 +105,25 @@ namespace BusManagement
             return routes;
         }
 
-
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            ResetInputBox();
+            var routeInput = TakeInputValid();
+            var routeDb = routeRepo.GetAll().Where(p => p.RoutesId.Equals(routePara.RoutesId)).FirstOrDefault();
+            routeDb.TransportUnitId = cbb.SelectedValue.ToString();
+            routeDb.StartPoint = routeInput.StartPoint;
+            routeDb.EndPoint = routeInput.EndPoint;
+            routeDb.RoutesName = routeInput.RoutesName;
+            routeDb.StartTime = routeInput.StartTime;
+            routeDb.EndTime = routeInput.EndTime;
+            routeDb.EstimatedTime = routeInput.EstimatedTime;
+            routeRepo.Update(routeDb);
+            u.ShowNoiceBox("Cập nhật thành công!");
+            this.Close();
         }
-        private void ResetInputBox()
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            txtFrom.Text = string.Empty;
-            txtName.Text = string.Empty;
-            txtRoutesId.Text = string.Empty;
-            txtTo.Text = string.Empty;
-            mTxtEndTime.Text = string.Empty;
-            mTxtBreakTime.Text = string.Empty;
-            mTxtStartTime.Text = string.Empty;
+            this.Close();
         }
     }
 }

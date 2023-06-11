@@ -80,3 +80,4 @@ E:\Learn\Learn_k5\PRN211\project\BusManagement\BusManagement\obj\Debug\net6.0-wi
 E:\Learn\Learn_k5\PRN211\project\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.RoutesManagement.resources
 E:\Learn\Learn_k5\PRN211\project\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.csproj.CopyComplete
 E:\Learn\Learn_k5\PRN211\project\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.AddRoutes.resources
+E:\Learn\Learn_k5\PRN211\project\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.UpdateRoutes.resources

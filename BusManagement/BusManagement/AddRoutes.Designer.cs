@@ -41,12 +41,13 @@
             txtName = new TextBox();
             mTxtStartTime = new MaskedTextBox();
             mTxtEndTime = new MaskedTextBox();
-            mTxtEstimateTime = new MaskedTextBox();
             btnCancel = new Button();
             btnAdd = new Button();
             btnRefresh = new Button();
             txtRoutesId = new TextBox();
             label8 = new Label();
+            mTxtBreakTime = new MaskedTextBox();
+            label9 = new Label();
             SuspendLayout();
             // 
             // cbb
@@ -103,9 +104,9 @@
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(491, 193);
             label5.Name = "label5";
-            label5.Size = new Size(192, 28);
+            label5.Size = new Size(200, 28);
             label5.TabIndex = 5;
-            label5.Text = "Thời Gian Ước Tính:";
+            label5.Text = "Thời Gian Giãn Cách:";
             // 
             // label6
             // 
@@ -168,14 +169,6 @@
             mTxtEndTime.TabIndex = 12;
             mTxtEndTime.ValidatingType = typeof(DateTime);
             // 
-            // mTxtEstimateTime
-            // 
-            mTxtEstimateTime.Location = new Point(689, 194);
-            mTxtEstimateTime.Mask = "0000 phút";
-            mTxtEstimateTime.Name = "mTxtEstimateTime";
-            mTxtEstimateTime.Size = new Size(83, 27);
-            mTxtEstimateTime.TabIndex = 13;
-            // 
             // btnCancel
             // 
             btnCancel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -183,7 +176,7 @@
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(173, 55);
             btnCancel.TabIndex = 14;
-            btnCancel.Text = "Cancel";
+            btnCancel.Text = "Hủy";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
@@ -194,7 +187,7 @@
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(173, 55);
             btnAdd.TabIndex = 15;
-            btnAdd.Text = "Add";
+            btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
             // 
@@ -205,8 +198,9 @@
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(173, 55);
             btnRefresh.TabIndex = 16;
-            btnRefresh.Text = "Refresh";
+            btnRefresh.Text = "Làm Mới";
             btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // txtRoutesId
             // 
@@ -225,17 +219,37 @@
             label8.TabIndex = 17;
             label8.Text = "Mã Tuyến:";
             // 
+            // mTxtBreakTime
+            // 
+            mTxtBreakTime.Location = new Point(697, 197);
+            mTxtBreakTime.Mask = "00000";
+            mTxtBreakTime.Name = "mTxtBreakTime";
+            mTxtBreakTime.Size = new Size(42, 27);
+            mTxtBreakTime.TabIndex = 20;
+            mTxtBreakTime.ValidatingType = typeof(int);
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(745, 204);
+            label9.Name = "label9";
+            label9.Size = new Size(41, 20);
+            label9.TabIndex = 21;
+            label9.Text = "Phút";
+            // 
             // AddRoutes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1022, 600);
+            Controls.Add(label9);
+            Controls.Add(mTxtBreakTime);
             Controls.Add(txtRoutesId);
             Controls.Add(label8);
             Controls.Add(btnRefresh);
             Controls.Add(btnAdd);
             Controls.Add(btnCancel);
-            Controls.Add(mTxtEstimateTime);
             Controls.Add(mTxtEndTime);
             Controls.Add(mTxtStartTime);
             Controls.Add(txtName);
@@ -270,11 +284,12 @@
         private TextBox txtName;
         private MaskedTextBox mTxtStartTime;
         private MaskedTextBox mTxtEndTime;
-        private MaskedTextBox mTxtEstimateTime;
         private Button btnCancel;
         private Button btnAdd;
         private Button btnRefresh;
         private TextBox txtRoutesId;
         private Label label8;
+        private MaskedTextBox mTxtBreakTime;
+        private Label label9;
     }
 }

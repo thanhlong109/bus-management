@@ -10,6 +10,7 @@ namespace Services.Models
         public TblBusRoute()
         {
             TblBus = new HashSet<TblBu>();
+            IsActive = true;
         }
 
         public string RoutesId { get; set; }

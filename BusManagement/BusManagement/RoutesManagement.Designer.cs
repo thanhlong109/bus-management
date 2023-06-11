@@ -83,6 +83,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(322, 27);
             txtSearch.TabIndex = 0;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // dgv
             // 
@@ -93,6 +94,7 @@
             dgv.RowTemplate.Height = 29;
             dgv.Size = new Size(918, 324);
             dgv.TabIndex = 3;
+            dgv.CellContentDoubleClick += dgv_CellContentDoubleClick;
             // 
             // btnAdd
             // 
@@ -114,6 +116,7 @@
             btnUpdate.TabIndex = 5;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnRemove
             // 
@@ -124,6 +127,7 @@
             btnRemove.TabIndex = 6;
             btnRemove.Text = "Xóa";
             btnRemove.UseVisualStyleBackColor = false;
+            btnRemove.Click += btnRemove_Click;
             // 
             // btnUnitManage
             // 
