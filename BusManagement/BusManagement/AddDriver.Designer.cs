@@ -197,6 +197,7 @@
             btnRefresh.TabIndex = 28;
             btnRefresh.Text = "Tải Lại";
             btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // btnAdd
             // 

@@ -17,13 +17,21 @@ namespace BusManagement
         public DriverManagement()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             btnDriverManage.Enabled = false;
-            dgvDriver.ReadOnly = true;
+            dgvDriver.ReadOnly = false;
 
             _driverRepository = new DriverRepository();
 
             var listDriver = _driverRepository.GetAll().ToList();
             dgvDriver.DataSource = listDriver;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new AddDriver();
+            form.ShowDialog();           
         }
     }
 

@@ -130,6 +130,7 @@
             btnAdd.TabIndex = 16;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // dgvDriver
             // 

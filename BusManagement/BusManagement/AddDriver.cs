@@ -15,6 +15,19 @@ namespace BusManagement
         public AddDriver()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            txtDriverID.Text = "";
+            txtDriverName.Text = "";
+            txtDriverAddress.Text = "";
+            txtDriverSalary.Text = "";
+            dtpDriverDoB.Value = DateTime.Now;
+            dtpDriverStartDate.Value = DateTime.Now;
+            cbDriverGender.DisplayMember = "Gender";
+            cbBusID.DisplayMember = "BusID";
         }
     }
 }
