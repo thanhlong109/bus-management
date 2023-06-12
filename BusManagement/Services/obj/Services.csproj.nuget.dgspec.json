@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj": {}
+    "D:\\HocTap\\Summer 2023\\PRN211\\Project PRN\\BusManagement\\Services\\Services.csproj": {}
   },
   "projects": {
-    "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj": {
+    "D:\\HocTap\\Summer 2023\\PRN211\\Project PRN\\BusManagement\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj",
+        "projectUniqueName": "D:\\HocTap\\Summer 2023\\PRN211\\Project PRN\\BusManagement\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\obj\\",
+        "projectPath": "D:\\HocTap\\Summer 2023\\PRN211\\Project PRN\\BusManagement\\Services\\Services.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\HocTap\\Summer 2023\\PRN211\\Project PRN\\BusManagement\\Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

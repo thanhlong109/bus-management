@@ -40,3 +40,17 @@ D:\#HỌC ĐÊ\PRN211\Assignment\bus-management\BusManagement\Services\obj\Debug
 D:\#HỌC ĐÊ\PRN211\Assignment\bus-management\BusManagement\Services\obj\Debug\net6.0\Services.pdb
 D:\#HỌC ĐÊ\PRN211\Assignment\bus-management\BusManagement\Services\obj\Debug\net6.0\Services.genruntimeconfig.cache
 D:\#HỌC ĐÊ\PRN211\Assignment\bus-management\BusManagement\Services\obj\Debug\net6.0\ref\Services.dll
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\bin\Debug\net6.0\Services.deps.json
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\bin\Debug\net6.0\Services.runtimeconfig.json
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\bin\Debug\net6.0\Services.dll
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\bin\Debug\net6.0\Services.pdb
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\Services.AssemblyInfoInputs.cache
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\Services.AssemblyInfo.cs
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\Services.csproj.CoreCompileInputs.cache
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\Services.dll
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\refint\Services.dll
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\Services.pdb
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\Services.genruntimeconfig.cache
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\Services\obj\Debug\net6.0\ref\Services.dll
