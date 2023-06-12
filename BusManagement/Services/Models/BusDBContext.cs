@@ -31,7 +31,6 @@ namespace Services.Models
                 optionsBuilder.UseSqlServer(GetConnectionString());
             }
         }
-
         private string GetConnectionString()
         {
             IConfiguration config = new ConfigurationBuilder()
@@ -41,8 +40,6 @@ namespace Services.Models
             var strConn = config["ConnectionStrings:BusDB"];
             return strConn;
         }
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
@@ -68,6 +65,8 @@ namespace Services.Models
                 entity.Property(e => e.FullName)
                     .HasMaxLength(40)
                     .HasColumnName("full_name");
+
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
 
                 entity.Property(e => e.Password)
                     .HasMaxLength(30)
@@ -105,6 +104,8 @@ namespace Services.Models
                 entity.Property(e => e.ExpirationDate)
                     .HasColumnType("datetime")
                     .HasColumnName("expiration_date");
+
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
 
                 entity.Property(e => e.ManufacturingDate)
                     .HasColumnType("datetime")
@@ -145,6 +146,8 @@ namespace Services.Models
                 entity.Property(e => e.EndTime).HasColumnName("end_time");
 
                 entity.Property(e => e.EstimatedTime).HasColumnName("estimated_time");
+
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
 
                 entity.Property(e => e.RoutesName)
                     .HasMaxLength(50)
@@ -196,6 +199,8 @@ namespace Services.Models
                     .HasMaxLength(10)
                     .HasColumnName("gender");
 
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
+
                 entity.Property(e => e.Salary)
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("salary");
@@ -227,6 +232,8 @@ namespace Services.Models
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .HasColumnName("email");
+
+                entity.Property(e => e.IsActive).HasColumnName("is_active");
 
                 entity.Property(e => e.PhoneNumber)
                     .HasMaxLength(12)
