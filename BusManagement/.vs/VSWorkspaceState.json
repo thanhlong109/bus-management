@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BusManagement"
+    "\\BusManagement",
+    "\\Services"
   ],
   "SelectedNode": "\\BusManagement.sln",
   "PreviewInSolutionExplorer": false

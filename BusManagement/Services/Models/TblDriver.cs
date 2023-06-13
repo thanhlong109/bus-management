@@ -15,6 +15,7 @@ namespace Services.Models
         public DateTime? StartDate { get; set; }
         public decimal? Salary { get; set; }
         public string BusId { get; set; }
+        public bool? IsActive { get; set; }
 
         public virtual TblBu Bus { get; set; }
     }

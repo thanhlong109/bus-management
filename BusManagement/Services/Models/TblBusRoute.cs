@@ -10,6 +10,7 @@ namespace Services.Models
         public TblBusRoute()
         {
             TblBus = new HashSet<TblBu>();
+            IsActive = true;
         }
 
         public string RoutesId { get; set; }
@@ -20,6 +21,7 @@ namespace Services.Models
         public int? EstimatedTime { get; set; }
         public string StartPoint { get; set; }
         public string EndPoint { get; set; }
+        public bool? IsActive { get; set; }
 
         public virtual TblTransportUnit TransportUnit { get; set; }
         public virtual ICollection<TblBu> TblBus { get; set; }
