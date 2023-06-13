@@ -54,19 +54,14 @@ namespace BusManagement
 
         private void load_cbDriverGender()
         {
-            Dictionary<string, string> comboSource = new Dictionary<string, string>();
-            comboSource.Add("1", "Nam");
-            comboSource.Add("2", "Nữ");
-            comboSource.Add("3", "Khác");
-            cbDriverGender.DataSource = new BindingSource(comboSource, null);
-            cbDriverGender.DisplayMember = "Value";
-            cbDriverGender.ValueMember = "Key";
+            cbDriverGender.Items.AddRange(new String[] {"Nam","Nu","Khac" });
+            cbDriverGender.SelectedIndex = 0;
         }
 
         private void load_cbBusID()
         {
-            var listCombo = _busrepository.GetAll().Select(p => new { p.BusId, p.BusType }).ToList();
-            cbBusID.DisplayMember = "BusType";
+            var listCombo = _busrepository.GetAll().Select(p => new { p.BusId, p.NumberPlate }).ToList();
+            cbBusID.DisplayMember = "NumberPlate";
             cbBusID.ValueMember = "BusId";
             cbBusID.DataSource = listCombo;
         }
@@ -79,7 +74,7 @@ namespace BusManagement
             txtDriverSalary.Text = "";
             dtpDriverDoB.Value = DateTime.Now;
             dtpDriverStartDate.Value = DateTime.Now;
-            load_cbDriverGender();
+            cbDriverGender.SelectedIndex = 0;
             load_cbBusID();
         }
 
