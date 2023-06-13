@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\BusManagement",
-    "\\Services"
+    "\\Services",
+    "\\Services\\Models",
+    "\\Services\\Repository"
   ],
-  "SelectedNode": "\\BusManagement.sln",
+  "SelectedNode": "\\BusManagement\\AddBus.cs",
   "PreviewInSolutionExplorer": false
 }

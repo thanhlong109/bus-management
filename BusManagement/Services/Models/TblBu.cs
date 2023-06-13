@@ -10,6 +10,7 @@ namespace Services.Models
         public TblBu()
         {
             TblDrivers = new HashSet<TblDriver>();
+            IsActive = true;
         }
 
         public string BusId { get; set; }
@@ -18,11 +19,10 @@ namespace Services.Models
         public int? SeatQuantity { get; set; }
         public int? EngineOuput { get; set; }
         public DateTime? ManufacturingDate { get; set; }
-        public DateTime? ExpirationDate { get; set; }
+        public DateTime? RegistrationDate { get; set; }
         public int? PeriodicMaintenance { get; set; }
         public string RoutesId { get; set; }
-        public bool? IsActive { get; set; }
-
+        public Boolean IsActive { get; set; }
         public virtual TblBusRoute Routes { get; set; }
         public virtual ICollection<TblDriver> TblDrivers { get; set; }
     }
