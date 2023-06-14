@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProject\\BusManagement\\Services\\Services.csproj": {}
+    "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\Services.csproj": {}
   },
   "projects": {
-    "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProject\\BusManagement\\Services\\Services.csproj": {
+    "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProject\\BusManagement\\Services\\Services.csproj",
+        "projectUniqueName": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProject\\BusManagement\\Services\\Services.csproj",
+        "projectPath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProject\\BusManagement\\Services\\obj\\",
+        "outputPath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

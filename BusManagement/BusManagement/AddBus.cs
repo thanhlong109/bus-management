@@ -89,7 +89,7 @@ namespace BusManagement
             }
             else
             {
-                string idPatternID = @"^b[0-9]{4}$".ToUpper();
+                string idPatternID = @"^b[0-9]{4}$";
                 if (!Regex.IsMatch(busId, idPatternID))
                 {
                     MessageBox.Show("Mã xe cần nhập theo format Bxxxx", "Thông báo", MessageBoxButtons.OK);

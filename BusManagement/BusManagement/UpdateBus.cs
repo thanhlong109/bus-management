@@ -31,6 +31,7 @@ namespace BusManagement
             cbBustype.SelectedItem = busData.BusType.ToString();
             txtSeat.Text = busData.SeatQuantity.ToString();
             txtEngine.Text = busData.EngineOuput.ToString();
+            cbPeriodic.SelectedItem = busData.PeriodicMaintenance.ToString();
             dtManufacturing.Value = busData.ManufacturingDate.Value;
             dtRegistration.Value = busData.RegistrationDate.Value;
         }

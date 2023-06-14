@@ -22,17 +22,29 @@ namespace BusManagement
         }
         public void loadDB()
         {
-            var listBus = _busService.GetAllWithRoutes().Select(p => new
-            { p.BusId, p.NumberPlate, p.BusType, p.SeatQuantity, p.EngineOuput, p.ManufacturingDate, p.RegistrationDate, p.PeriodicMaintenance, RoutesId = p.Routes.RoutesName });
-            //dgvListBus.AutoGenerateColumns = true;
+            var listBus = _busService.GetAllWithRoutes().Where(p => p.IsActive ).Select(p => new
+            {
+                p.BusId,
+                p.NumberPlate,
+                p.BusType,
+                p.SeatQuantity,
+                p.EngineOuput,
+                p.ManufacturingDate,
+                p.RegistrationDate,
+                p.PeriodicMaintenance,
+                RoutesId = p.Routes.RoutesName
+            });
             dgvListBus.DataSource = new BindingSource() { DataSource = listBus };
         }
+
+        
+
         private void dgvListBus_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex >= 0) // Kiểm tra chỉ số hàng hợp lệ
+            if (e.RowIndex >= 0) // Kiểm tra hàng hợp lệ
             {
-                dgvListBus.Rows[e.RowIndex].Selected = true; // Chọn toàn bộ hàng được double click
+                dgvListBus.Rows[e.RowIndex].Selected = true; // Chọn toàn bộ hàng được click
             }
 
 
@@ -56,6 +68,7 @@ namespace BusManagement
                     RegistrationDate = DateTime.Parse(row.Cells["RegistrationDate"].Value.ToString()),
                     PeriodicMaintenance = int.Parse(row.Cells["PeriodicMaintenance"].Value.ToString())
                 };
+                //truyen du lieu
 
                 this.Hide();
                 Form updateBus = new UpdateBus(selectedBus);
@@ -96,7 +109,7 @@ namespace BusManagement
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn một hàng để cập nhật.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn một hàng để cập nhật!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -106,23 +119,25 @@ namespace BusManagement
             if (dgvListBus.SelectedRows.Count > 0)
             {
                 int location = dgvListBus.CurrentCell.RowIndex;
-                var busDelete = _busService.GetAll().Where(p => p.BusId.Equals(dgvListBus[0, location].Value)).FirstOrDefault();
+                string busId = dgvListBus.Rows[location].Cells["BusId"].Value.ToString();
+                selectedBus = _busService.GetAll().FirstOrDefault(p => p.BusId.Equals(busId));
 
-                DialogResult result = MessageBox.Show("Bạn muốn xóa xe bus này ?? ", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Bạn muốn xóa xe bus này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-
-                    _busService.Delete(busDelete);
-                    MessageBox.Show("Xóa thành công !!!", "Thông báo", MessageBoxButtons.OK);
+                    selectedBus.IsActive = false;
+                    _busService.Update(selectedBus);
+                    MessageBox.Show("Xóa thành công!!!", "Thông báo", MessageBoxButtons.OK);
                     loadDB();
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn một hàng để cập nhật", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Vui lòng chọn một hàng để xóa", "Thông báo", MessageBoxButtons.OK);
             }
-
         }
+
+
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
