@@ -37,18 +37,16 @@
             txtUserName = new TextBox();
             txtPassword = new TextBox();
             txtFullName = new TextBox();
-            dtpAccount = new DateTimePicker();
+            dtpDob = new DateTimePicker();
             label5 = new Label();
             txtEmail = new TextBox();
             label6 = new Label();
             label8 = new Label();
-            label9 = new Label();
             txtPhoneNumber = new TextBox();
             btnCancel = new Button();
             btnAdd = new Button();
             btnRefresh = new Button();
-            cbb = new ComboBox();
-            txtRole = new TextBox();
+            cbbRole = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -133,12 +131,12 @@
             txtFullName.Size = new Size(232, 23);
             txtFullName.TabIndex = 29;
             // 
-            // dtpAccount
+            // dtpDob
             // 
-            dtpAccount.Location = new Point(572, 84);
-            dtpAccount.Name = "dtpAccount";
-            dtpAccount.Size = new Size(200, 23);
-            dtpAccount.TabIndex = 30;
+            dtpDob.Location = new Point(572, 84);
+            dtpDob.Name = "dtpDob";
+            dtpDob.Size = new Size(200, 23);
+            dtpDob.TabIndex = 30;
             // 
             // label5
             // 
@@ -178,16 +176,6 @@
             label8.TabIndex = 34;
             label8.Text = "Vai Trò";
             // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(12, 268);
-            label9.Name = "label9";
-            label9.Size = new Size(85, 21);
-            label9.TabIndex = 35;
-            label9.Text = "Trạng Thái";
-            // 
             // txtPhoneNumber
             // 
             txtPhoneNumber.Location = new Point(540, 181);
@@ -199,7 +187,7 @@
             // btnCancel
             // 
             btnCancel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancel.Location = new Point(57, 346);
+            btnCancel.Location = new Point(51, 307);
             btnCancel.Margin = new Padding(3, 2, 3, 2);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(151, 41);
@@ -211,7 +199,7 @@
             // btnAdd
             // 
             btnAdd.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAdd.Location = new Point(304, 346);
+            btnAdd.Location = new Point(304, 307);
             btnAdd.Margin = new Padding(3, 2, 3, 2);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(151, 41);
@@ -223,7 +211,7 @@
             // btnRefresh
             // 
             btnRefresh.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnRefresh.Location = new Point(572, 346);
+            btnRefresh.Location = new Point(572, 307);
             btnRefresh.Margin = new Padding(3, 2, 3, 2);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(151, 41);
@@ -232,40 +220,30 @@
             btnRefresh.UseVisualStyleBackColor = true;
             btnRefresh.Click += btnRefresh_Click;
             // 
-            // cbb
+            // cbbRole
             // 
-            cbb.FormattingEnabled = true;
-            cbb.Location = new Point(136, 270);
-            cbb.Margin = new Padding(3, 2, 3, 2);
-            cbb.Name = "cbb";
-            cbb.Size = new Size(232, 23);
-            cbb.TabIndex = 42;
-            // 
-            // txtRole
-            // 
-            txtRole.Location = new Point(540, 227);
-            txtRole.Margin = new Padding(3, 2, 3, 2);
-            txtRole.Name = "txtRole";
-            txtRole.Size = new Size(232, 23);
-            txtRole.TabIndex = 43;
+            cbbRole.FormattingEnabled = true;
+            cbbRole.Location = new Point(540, 227);
+            cbbRole.Margin = new Padding(3, 2, 3, 2);
+            cbbRole.Name = "cbbRole";
+            cbbRole.Size = new Size(232, 23);
+            cbbRole.TabIndex = 43;
             // 
             // AddAccount
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(txtRole);
-            Controls.Add(cbb);
+            Controls.Add(cbbRole);
             Controls.Add(btnRefresh);
             Controls.Add(btnAdd);
             Controls.Add(btnCancel);
             Controls.Add(txtPhoneNumber);
-            Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label6);
             Controls.Add(txtEmail);
             Controls.Add(label5);
-            Controls.Add(dtpAccount);
+            Controls.Add(dtpDob);
             Controls.Add(txtFullName);
             Controls.Add(txtPassword);
             Controls.Add(txtUserName);
@@ -292,17 +270,15 @@
         private TextBox txtUserName;
         private TextBox txtPassword;
         private TextBox txtFullName;
-        private DateTimePicker dtpAccount;
+        private DateTimePicker dtpDob;
         private Label label5;
         private TextBox txtEmail;
         private Label label6;
         private Label label8;
-        private Label label9;
         private TextBox txtPhoneNumber;
         private Button btnCancel;
         private Button btnAdd;
         private Button btnRefresh;
-        private ComboBox cbb;
-        private TextBox txtRole;
+        private ComboBox cbbRole;
     }
 }

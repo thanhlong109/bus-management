@@ -65,6 +65,8 @@
             dgv_Account.RowTemplate.Height = 29;
             dgv_Account.Size = new Size(825, 243);
             dgv_Account.TabIndex = 4;
+            dgv_Account.CellClick += dgv_Account_CellClick;
+            dgv_Account.CellDoubleClick += dgv_Account_CellDoubleClick;
             // 
             // btnRoutesManage
             // 
@@ -161,6 +163,7 @@
             btnUpdate.TabIndex = 14;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnRemove
             // 
@@ -172,6 +175,7 @@
             btnRemove.TabIndex = 15;
             btnRemove.Text = "Xóa";
             btnRemove.UseVisualStyleBackColor = false;
+            btnRemove.Click += btnRemove_Click;
             // 
             // groupBox1
             // 

@@ -7,6 +7,11 @@ namespace Services.Models
 {
     public partial class TblAccount
     {
+        public TblAccount() 
+        {
+            IsActive = true;
+        }
+
         public string AccountId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -17,4 +22,5 @@ namespace Services.Models
         public string Role { get; set; }
         public bool? IsActive { get; set; }
     }
+
 }
