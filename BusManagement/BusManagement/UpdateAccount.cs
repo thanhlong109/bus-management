@@ -5,33 +5,30 @@ using System.Text.RegularExpressions;
 
 namespace BusManagement
 {
-    public partial class AddAccount : Form
+    public partial class UpdateAccount : Form
     {
         AccountRepository accountRepository;
-
-        public AddAccount()
+        TblAccount account;
+        public UpdateAccount(TblAccount account)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             accountRepository = new AccountRepository();
+            txtAccountID.Text = account.AccountId;
+            txtAccountID.Enabled = false;
+            txtUserName.Text = account.Username;
+            txtPassword.Text = account.Password;
+            txtFullName.Text = account.FullName;
+            dtpDob.Value = (DateTime)account.Dob;
+            txtEmail.Text = account.Email;
+            txtPhoneNumber.Text = account.PhoneNumber;
             loadComboBox();
+
         }
 
         private void loadComboBox()
         {
             cbbRole.Items.AddRange(new string[] { "Nhân Viên", "Quản Lí" });
-            cbbRole.SelectedIndex = 0;
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            txtAccountID.Text = string.Empty;
-            txtUserName.Text = string.Empty;
-            txtPassword.Text = string.Empty;
-            txtFullName.Text = string.Empty;
-            txtEmail.Text = string.Empty;
-            dtpDob.Value = DateTime.Now;
-            txtPhoneNumber.Text = string.Empty;
             cbbRole.SelectedIndex = 0;
         }
 
@@ -42,15 +39,24 @@ namespace BusManagement
             form.ShowDialog();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var account = checkInput();
-
-            if (account != null)
+            var check = checkInput();
+            if (check != null)
             {
-                accountRepository.Create(account);
-                MessageBox.Show("Thêm thông tin thành công!", "Thông Báo", MessageBoxButtons.OK);
-                this.Close();
+                var listAccount = accountRepository.GetAll().
+                    Where(p => p.AccountId == txtAccountID.Text).FirstOrDefault();            
+                listAccount.Username = check.Username;
+                listAccount.Password = check.Password;
+                listAccount.FullName = check.FullName;
+                listAccount.Dob = check.Dob;
+                listAccount.Email = check.Email;
+                listAccount.PhoneNumber = check.PhoneNumber;
+                listAccount.Role = check.Role;
+                
+                accountRepository.Update(listAccount);
+                MessageBox.Show("Cập nhật thông tin thành công!", "Thông Báo", MessageBoxButtons.OK);
+                this.Hide();
                 Form form = new AccountManagement();
                 form.ShowDialog();
             }
@@ -61,8 +67,7 @@ namespace BusManagement
             TblAccount account = new TblAccount();
 
             //check textbox is null or empty
-            if (String.IsNullOrEmpty(txtAccountID.Text.Trim())
-                || String.IsNullOrEmpty(txtUserName.Text.Trim())
+            if (String.IsNullOrEmpty(txtUserName.Text.Trim())
                 || String.IsNullOrEmpty(txtFullName.Text.Trim()) 
                 || String.IsNullOrEmpty(txtPassword.Text.Trim())
                 || String.IsNullOrEmpty(txtEmail.Text.Trim())
@@ -73,25 +78,6 @@ namespace BusManagement
                 return null;
             }
 
-            //check id match regex or not
-            String idPattern = @"^[A, a]{1}[0-9]{4}$";
-            if (!Regex.IsMatch(txtAccountID.Text.Trim(), idPattern))
-            {
-                MessageBox.Show("Hãy nhập ID theo cú pháp sau: [A****]. Trong đó * là số. Ví Dụ: [A1234] ", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return null;
-            }
-
-            //check id is duplicate or not
-            var accountID = accountRepository.GetAll().
-                Where(p => p.AccountId.Equals(txtAccountID.Text.Trim().ToUpper())).FirstOrDefault();
-            if (accountID != null)
-            {
-                MessageBox.Show("Đã có ID này rồi!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return null;
-            }
-
-
             //check username is duplicate or not
             var username = accountRepository.GetAll().
                 Where(p => p.Username.Equals(txtUserName.Text.Trim().ToUpper())).FirstOrDefault();
@@ -100,7 +86,6 @@ namespace BusManagement
                 MessageBox.Show("Tài khoản này đã có rồi!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return null;
             }
-
 
             //check if full name has special characters or numbers or not
             if (!txtFullName.Text.Trim().All(c => Char.IsLetter(c) || c == ' '))
@@ -128,8 +113,7 @@ namespace BusManagement
                 return null;
             }
 
-            // add data
-            account.AccountId = txtAccountID.Text.Trim().ToUpper();
+            // update data
             account.Username = txtUserName.Text.Trim();
             account.Password = txtPassword.Text.Trim();
             account.FullName = txtFullName.Text.Trim();
@@ -141,7 +125,6 @@ namespace BusManagement
 
             return account;
         }
-
 
     }
 }

@@ -215,3 +215,4 @@ D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\BusManagement\obj\Debug\n
 D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.genruntimeconfig.cache
 D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\BusManagement\obj\Debug\net6.0-windows\ref\BusManagement.dll
 D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.AddAccount.resources
+D:\HocTap\Summer 2023\PRN211\Project PRN\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.UpdateAccount.resources

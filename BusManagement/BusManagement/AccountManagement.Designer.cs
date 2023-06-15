@@ -65,7 +65,6 @@
             dgv_Account.RowTemplate.Height = 29;
             dgv_Account.Size = new Size(825, 243);
             dgv_Account.TabIndex = 4;
-            dgv_Account.CellClick += dgv_Account_CellClick;
             dgv_Account.CellDoubleClick += dgv_Account_CellDoubleClick;
             // 
             // btnRoutesManage
@@ -161,7 +160,7 @@
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(102, 39);
             btnUpdate.TabIndex = 14;
-            btnUpdate.Text = "Sửa";
+            btnUpdate.Text = "Cập Nhật";
             btnUpdate.UseVisualStyleBackColor = false;
             btnUpdate.Click += btnUpdate_Click;
             // 
@@ -197,6 +196,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(282, 23);
             txtSearch.TabIndex = 0;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // AccountManagement
             // 

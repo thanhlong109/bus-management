@@ -7,7 +7,7 @@ namespace BusManagement
     public partial class AccountManagement : Form
     {
         AccountRepository accountRepository;
-
+        TblAccount account;
         public AccountManagement()
         {
             InitializeComponent();
@@ -16,12 +16,21 @@ namespace BusManagement
             btnAccountManage.Enabled = false;
             accountRepository = new AccountRepository();
             loadData();
-
+            dgv_Account.Columns[0].HeaderText = "Mã Nhân Viên";
+            dgv_Account.Columns[1].HeaderText = "Tài Khoản";
+            dgv_Account.Columns[2].HeaderText = "Mật Khẩu";
+            dgv_Account.Columns[3].HeaderText = "Họ và Tên";
+            dgv_Account.Columns[4].HeaderText = "Ngày Tháng Năm Sinh";
+            dgv_Account.Columns[5].HeaderText = "Email";
+            dgv_Account.Columns[6].HeaderText = "Số Điện Thoại";
+            dgv_Account.Columns[7].HeaderText = "Chức Vụ";
         }
 
         private void loadData()
         {
-            var listAccount = accountRepository.GetAll().Select(p => new
+            btnRemove.Enabled = false;
+            btnUpdate.Enabled = false;
+            var listAccount = new AccountRepository().GetAll().Where(p => p.IsActive == true).Select(p => new
             {
                 p.AccountId,
                 p.Username,
@@ -31,8 +40,7 @@ namespace BusManagement
                 p.Email,
                 p.PhoneNumber,
                 p.Role
-            }).ToList();
-
+            });
             dgv_Account.DataSource = new BindingSource() { DataSource = listAccount };
         }
 
@@ -45,48 +53,50 @@ namespace BusManagement
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            TblAccount account = new TblAccount();
-            if (dgv_Account.SelectedRows.Count > 0)
+            DialogResult result = MessageBox.Show("Bạn muốn xóa hàng này?", "Thông báo",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                int pos = dgv_Account.CurrentCell.RowIndex;
-                string id = dgv_Account.Rows[pos].Cells["AccountId"].ToString();
-                account = accountRepository.GetAll().FirstOrDefault(p => p.AccountId.Equals(id));
-
-                DialogResult result = MessageBox.Show("Bạn muốn xóa hàng này?", "Thông báo",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    accountRepository.Delete(account);
-                    MessageBox.Show("Xóa thành công!!!", "Thông báo", MessageBoxButtons.OK);
-                    loadData();
-                }
+                accountRepository.Delete(account);
+                MessageBox.Show("Xóa thành công!!!", "Thông báo", MessageBoxButtons.OK);
+                loadData();
             }
-            else
-            {
-                MessageBox.Show("Hãy chọn một hàng để xóa", "Thông báo", MessageBoxButtons.OK);
-            }
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Form form = new UpdateAccount(account);
+            form.ShowDialog();
+            loadData();
         }
 
-        private void dgv_Account_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0) 
-            {
-                dgv_Account.Rows[e.RowIndex].Selected = true; 
-            }
-        }
 
         private void dgv_Account_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            btnRemove.Enabled = true;
+            btnUpdate.Enabled = true;
+            account = accountRepository.GetAll().Where(
+                p => p.AccountId.Equals(dgv_Account.Rows[e.RowIndex].Cells[0].Value)).FirstOrDefault();
         }
 
-
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            var search = new AccountRepository().GetAll().Where(p =>
+            p.IsActive == true && p.FullName.Contains(txtSearch.Text)).
+            Select(p => new
+            {
+                p.AccountId,
+                p.Username,
+                p.Password,
+                p.FullName,
+                p.Dob,
+                p.Email,
+                p.PhoneNumber,
+                p.Role
+            });
+            dgv_Account.DataSource = new BindingSource() { DataSource = search };
+        }
     }
 }
 

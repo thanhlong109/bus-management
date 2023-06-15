@@ -172,9 +172,9 @@
             label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label8.Location = new Point(396, 225);
             label8.Name = "label8";
-            label8.Size = new Size(59, 21);
+            label8.Size = new Size(70, 21);
             label8.TabIndex = 34;
-            label8.Text = "Vai Trò";
+            label8.Text = "Chức Vụ";
             // 
             // txtPhoneNumber
             // 
