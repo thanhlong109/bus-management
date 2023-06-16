@@ -45,18 +45,14 @@ namespace BusManagement
                 Form form = new DriverManagement();
                 form.ShowDialog();
             }
-            else
-            {
-                MessageBox.Show("Vui lòng thử lại!", "Thông báo", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            Form form = new DriverManagement();
+            form.ShowDialog();
         }
 
         private void load_cbDriverGender()
