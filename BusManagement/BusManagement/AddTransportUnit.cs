@@ -1,4 +1,6 @@
-﻿using Services.Models;
+﻿using Accessibility;
+using Microsoft.VisualBasic;
+using Services.Models;
 using Services.Repository;
 using System;
 using System.Collections.Generic;
@@ -17,6 +19,7 @@ namespace BusManagement
     public partial class AddTransportUnit : Form
     {
         TransportUnitRepository _transportUnitService = new TransportUnitRepository();
+        
         public AddTransportUnit()
         {
             InitializeComponent();
@@ -83,6 +86,8 @@ namespace BusManagement
             transportUnit.IsActive = is_Active;
             _transportUnitService.Create(transportUnit);
 
+
+
             MessageBox.Show("Save success", "Message", MessageBoxButtons.OK);
             this.Hide();
             Form form = new TransportUnitManagement();
@@ -93,6 +98,7 @@ namespace BusManagement
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
+
             this.Hide();
             Form form = new TransportUnitManagement();
             form.ShowDialog();

@@ -214,3 +214,4 @@ E:\Chuyen_nganh_5\Bus-management\BusManagement\BusManagement\obj\Debug\net6.0-wi
 E:\Chuyen_nganh_5\Bus-management\BusManagement\BusManagement\obj\Debug\net6.0-windows\ref\BusManagement.dll
 E:\Chuyen_nganh_5\Bus-management\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.AddTransportUnit.resources
 E:\Chuyen_nganh_5\Bus-management\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.TransportUnitManagement.resources
+E:\Chuyen_nganh_5\Bus-management\BusManagement\BusManagement\obj\Debug\net6.0-windows\BusManagement.UpdateTransportUnit.resources

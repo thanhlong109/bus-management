@@ -40,7 +40,7 @@
             btnXoa = new Button();
             label1 = new Label();
             groupBox1 = new GroupBox();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvListTransportUnit).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -54,6 +54,7 @@
             dgvListTransportUnit.RowTemplate.Height = 29;
             dgvListTransportUnit.Size = new Size(912, 393);
             dgvListTransportUnit.TabIndex = 0;
+            dgvListTransportUnit.CellDoubleClick += dgvListTransportUnit_CellDoubleClick;
             // 
             // button1
             // 
@@ -150,7 +151,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtSearch);
             groupBox1.Location = new Point(258, 46);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(293, 53);
@@ -158,12 +159,13 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Tìm Kiếm Thông Tin Đơn Vị Vận Chuyển";
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Location = new Point(56, 21);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(231, 27);
-            textBox1.TabIndex = 0;
+            txtSearch.Location = new Point(56, 21);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(231, 27);
+            txtSearch.TabIndex = 0;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // TransportUnitManagement
             // 
@@ -205,6 +207,6 @@
         private Button btnXoa;
         private Label label1;
         private GroupBox groupBox1;
-        private TextBox textBox1;
+        private TextBox txtSearch;
     }
 }
