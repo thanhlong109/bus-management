@@ -208,6 +208,7 @@
             btnAdd.TabIndex = 27;
             btnAdd.Text = "Thêm ";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnCancel
             // 
@@ -218,6 +219,7 @@
             btnCancel.TabIndex = 26;
             btnCancel.Text = "Thoát";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // label9
             // 

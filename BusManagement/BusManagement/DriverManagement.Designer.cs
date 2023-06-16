@@ -42,6 +42,7 @@
             txtSearch = new TextBox();
             label1 = new Label();
             btnRoutesManage = new Button();
+            btnRefresh = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDriver).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -104,27 +105,29 @@
             // btnDelete
             // 
             btnDelete.BackColor = SystemColors.Control;
-            btnDelete.Location = new Point(1040, 642);
+            btnDelete.Location = new Point(894, 651);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(126, 60);
             btnDelete.TabIndex = 18;
             btnDelete.Text = "Xóa";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnUpdate
             // 
             btnUpdate.BackColor = SystemColors.Control;
-            btnUpdate.Location = new Point(751, 642);
+            btnUpdate.Location = new Point(605, 651);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(125, 60);
             btnUpdate.TabIndex = 17;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnAdd
             // 
             btnAdd.BackColor = SystemColors.Control;
-            btnAdd.Location = new Point(454, 642);
+            btnAdd.Location = new Point(308, 651);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(137, 60);
             btnAdd.TabIndex = 16;
@@ -141,6 +144,8 @@
             dgvDriver.RowTemplate.Height = 29;
             dgvDriver.Size = new Size(1076, 390);
             dgvDriver.TabIndex = 15;
+            dgvDriver.CellClick += dgvDriver_CellClick;
+            dgvDriver.CellContentDoubleClick += dgvDriver_CellContentDoubleClick;
             // 
             // groupBox1
             // 
@@ -162,6 +167,7 @@
             btnSearch.TabIndex = 24;
             btnSearch.Text = "Tìm Kiếm";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // txtSearch
             // 
@@ -191,11 +197,23 @@
             btnRoutesManage.Text = "Quản Lý Tuyến Xe";
             btnRoutesManage.UseVisualStyleBackColor = false;
             // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = SystemColors.Control;
+            btnRefresh.Location = new Point(1186, 651);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(126, 60);
+            btnRefresh.TabIndex = 24;
+            btnRefresh.Text = "Tải lại ";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
             // DriverManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1384, 723);
+            Controls.Add(btnRefresh);
             Controls.Add(btnLogout);
             Controls.Add(btnAccountManage);
             Controls.Add(btnDriverManage);
@@ -233,5 +251,6 @@
         private Label label1;
         private Button btnRoutesManage;
         private Button btnSearch;
+        private Button btnRefresh;
     }
 }
