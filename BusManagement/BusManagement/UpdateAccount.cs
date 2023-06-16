@@ -8,10 +8,12 @@ namespace BusManagement
     public partial class UpdateAccount : Form
     {
         AccountRepository accountRepository;
-        TblAccount account;
+        TblAccount accountupdate;
         public UpdateAccount(TblAccount account)
         {
+            accountupdate = account;
             InitializeComponent();
+            loadComboBox();
             this.StartPosition = FormStartPosition.CenterScreen;
             accountRepository = new AccountRepository();
             txtAccountID.Text = account.AccountId;
@@ -22,8 +24,8 @@ namespace BusManagement
             dtpDob.Value = (DateTime)account.Dob;
             txtEmail.Text = account.Email;
             txtPhoneNumber.Text = account.PhoneNumber;
-            loadComboBox();
-
+            cbbRole.SelectedItem = account.Role;
+            
         }
 
         private void loadComboBox()
@@ -45,7 +47,7 @@ namespace BusManagement
             if (check != null)
             {
                 var listAccount = accountRepository.GetAll().
-                    Where(p => p.AccountId == txtAccountID.Text).FirstOrDefault();            
+                    Where(p => p.AccountId == txtAccountID.Text).FirstOrDefault();
                 listAccount.Username = check.Username;
                 listAccount.Password = check.Password;
                 listAccount.FullName = check.FullName;
@@ -53,7 +55,7 @@ namespace BusManagement
                 listAccount.Email = check.Email;
                 listAccount.PhoneNumber = check.PhoneNumber;
                 listAccount.Role = check.Role;
-                
+
                 accountRepository.Update(listAccount);
                 MessageBox.Show("Cập nhật thông tin thành công!", "Thông Báo", MessageBoxButtons.OK);
                 this.Hide();
@@ -68,7 +70,7 @@ namespace BusManagement
 
             //check textbox is null or empty
             if (String.IsNullOrEmpty(txtUserName.Text.Trim())
-                || String.IsNullOrEmpty(txtFullName.Text.Trim()) 
+                || String.IsNullOrEmpty(txtFullName.Text.Trim())
                 || String.IsNullOrEmpty(txtPassword.Text.Trim())
                 || String.IsNullOrEmpty(txtEmail.Text.Trim())
                 || String.IsNullOrEmpty(txtPhoneNumber.Text.Trim()))
@@ -125,6 +127,5 @@ namespace BusManagement
 
             return account;
         }
-
     }
 }

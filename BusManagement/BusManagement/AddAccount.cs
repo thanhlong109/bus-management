@@ -63,7 +63,7 @@ namespace BusManagement
             //check textbox is null or empty
             if (String.IsNullOrEmpty(txtAccountID.Text.Trim())
                 || String.IsNullOrEmpty(txtUserName.Text.Trim())
-                || String.IsNullOrEmpty(txtFullName.Text.Trim()) 
+                || String.IsNullOrEmpty(txtFullName.Text.Trim())
                 || String.IsNullOrEmpty(txtPassword.Text.Trim())
                 || String.IsNullOrEmpty(txtEmail.Text.Trim())
                 || String.IsNullOrEmpty(txtPhoneNumber.Text.Trim()))

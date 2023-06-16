@@ -46,6 +46,8 @@
             label7 = new Label();
             label2 = new Label();
             label1 = new Label();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // cbbRole
@@ -216,11 +218,22 @@
             label1.TabIndex = 44;
             label1.Text = "ID Nhân Viên";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.thangnc;
+            pictureBox1.Location = new Point(340, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(116, 101);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 63;
+            pictureBox1.TabStop = false;
+            // 
             // UpdateAccount
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(832, 503);
+            Controls.Add(pictureBox1);
             Controls.Add(cbbRole);
             Controls.Add(btnUpdate);
             Controls.Add(btnCancel);
@@ -241,6 +254,7 @@
             Controls.Add(label1);
             Name = "UpdateAccount";
             Text = "UpdateAccount";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -265,5 +279,6 @@
         private Label label7;
         private Label label2;
         private Label label1;
+        private PictureBox pictureBox1;
     }
 }

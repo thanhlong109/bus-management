@@ -47,6 +47,8 @@
             btnAdd = new Button();
             btnRefresh = new Button();
             cbbRole = new ComboBox();
+            pictureBox1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -229,11 +231,22 @@
             cbbRole.Size = new Size(232, 23);
             cbbRole.TabIndex = 43;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.thangnc;
+            pictureBox1.Location = new Point(342, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(82, 70);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 64;
+            pictureBox1.TabStop = false;
+            // 
             // AddAccount
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(pictureBox1);
             Controls.Add(cbbRole);
             Controls.Add(btnRefresh);
             Controls.Add(btnAdd);
@@ -255,6 +268,7 @@
             Controls.Add(label1);
             Name = "AddAccount";
             Text = "AddAccount";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -280,5 +294,6 @@
         private Button btnAdd;
         private Button btnRefresh;
         private ComboBox cbbRole;
+        private PictureBox pictureBox1;
     }
 }

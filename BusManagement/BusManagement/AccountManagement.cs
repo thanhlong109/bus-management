@@ -30,6 +30,7 @@ namespace BusManagement
         {
             btnRemove.Enabled = false;
             btnUpdate.Enabled = false;
+
             var listAccount = new AccountRepository().GetAll().Where(p => p.IsActive == true).Select(p => new
             {
                 p.AccountId,
