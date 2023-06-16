@@ -77,9 +77,12 @@ namespace BusManagement
                 }
                 else
                 {
-                    if (!((busType == "co nho" && seatQuantityValue <= 20) ||
-                        (busType == "co vua" && (seatQuantityValue >= 20 || busType == "co vua" && seatQuantityValue <= 35)) ||
-                        (busType == "co lon" && seatQuantityValue >= 35) || busType =="co lon" && seatQuantityValue >60))
+                    if (!
+                        ((busType == "co nho" && seatQuantityValue <= 20) ||
+                        ((busType == "co vua" && seatQuantityValue >= 20) && 
+                        (busType == "co vua" && seatQuantityValue <= 35)) ||
+                        (busType == "co lon" && seatQuantityValue >= 35) || 
+                        (busType =="co lon" && seatQuantityValue >60)))
                     {
                         MessageBox.Show("Vui lòng chọn số ghế phù hợp với cỡ xe !!! " +
                             "(cỡ nhỏ <= 20, cỡ vừa <= 35, cỡ lớn <= 60)", "Thông báo", MessageBoxButtons.OK);

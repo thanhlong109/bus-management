@@ -12,3 +12,17 @@ W:\Material\Summer2023_CN5\PRN211\TeamProject\BusManagement\Services\obj\Debug\n
 W:\Material\Summer2023_CN5\PRN211\TeamProject\BusManagement\Services\obj\Debug\net6.0\ref\Services.dll
 W:\Material\Summer2023_CN5\PRN211\TeamProject\BusManagement\Services\bin\Debug\net6.0\Services.runtimeconfig.json
 W:\Material\Summer2023_CN5\PRN211\TeamProject\BusManagement\Services\obj\Debug\net6.0\Services.genruntimeconfig.cache
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\bin\Debug\net6.0\Services.deps.json
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\bin\Debug\net6.0\Services.runtimeconfig.json
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\bin\Debug\net6.0\Services.dll
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\bin\Debug\net6.0\Services.pdb
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\Services.csproj.AssemblyReference.cache
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\Services.GeneratedMSBuildEditorConfig.editorconfig
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\Services.AssemblyInfoInputs.cache
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\Services.AssemblyInfo.cs
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\Services.csproj.CoreCompileInputs.cache
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\Services.dll
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\refint\Services.dll
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\Services.pdb
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\Services.genruntimeconfig.cache
+W:\Material\Summer2023_CN5\PRN211\TeamProjectPrn\BusManagement\Services\obj\Debug\net6.0\ref\Services.dll
