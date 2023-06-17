@@ -11,7 +11,9 @@ namespace Services.Models
         {
             TblDrivers = new HashSet<TblDriver>();
             IsActive = true;
+
         }
+        
 
         public string BusId { get; set; }
         public string NumberPlate { get; set; }

@@ -37,6 +37,10 @@
             btnUpdate = new Button();
             btnAdd = new Button();
             dgvListBus = new DataGridView();
+            groupBox1 = new GroupBox();
+            txtSearch = new TextBox();
+            label1 = new Label();
+            btnRoutesManage = new Button();
             BusId = new DataGridViewTextBoxColumn();
             RoutesId = new DataGridViewTextBoxColumn();
             NumberPlate = new DataGridViewTextBoxColumn();
@@ -46,10 +50,7 @@
             ManufacturingDate = new DataGridViewTextBoxColumn();
             RegistrationDate = new DataGridViewTextBoxColumn();
             PeriodicMaintenance = new DataGridViewTextBoxColumn();
-            groupBox1 = new GroupBox();
-            txtSearch = new TextBox();
-            label1 = new Label();
-            btnRoutesManage = new Button();
+            IsActive = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvListBus).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -147,7 +148,7 @@
             // dgvListBus
             // 
             dgvListBus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvListBus.Columns.AddRange(new DataGridViewColumn[] { BusId, RoutesId, NumberPlate, BusType, SeatQuantity, EngineOuput, ManufacturingDate, RegistrationDate, PeriodicMaintenance });
+            dgvListBus.Columns.AddRange(new DataGridViewColumn[] { BusId, RoutesId, NumberPlate, BusType, SeatQuantity, EngineOuput, ManufacturingDate, RegistrationDate, PeriodicMaintenance, IsActive });
             dgvListBus.Location = new Point(284, 242);
             dgvListBus.Name = "dgvListBus";
             dgvListBus.RowHeadersWidth = 51;
@@ -156,6 +157,46 @@
             dgvListBus.TabIndex = 15;
             dgvListBus.CellClick += dgvListBus_CellClick;
             dgvListBus.CellDoubleClick += dgvListBus_CellDoubleClick;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(txtSearch);
+            groupBox1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox1.Location = new Point(284, 160);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(358, 62);
+            groupBox1.TabIndex = 14;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Tìm Kiếm Thông Tin Xe";
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(16, 26);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(322, 27);
+            txtSearch.TabIndex = 0;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(317, 69);
+            label1.Name = "label1";
+            label1.Size = new Size(213, 38);
+            label1.TabIndex = 13;
+            label1.Text = "Quản Lý Xe Bus";
+            // 
+            // btnRoutesManage
+            // 
+            btnRoutesManage.BackColor = SystemColors.ButtonHighlight;
+            btnRoutesManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnRoutesManage.Location = new Point(29, 242);
+            btnRoutesManage.Name = "btnRoutesManage";
+            btnRoutesManage.Size = new Size(191, 60);
+            btnRoutesManage.TabIndex = 12;
+            btnRoutesManage.Text = "Quản Lý Tuyến Xe";
+            btnRoutesManage.UseVisualStyleBackColor = false;
             // 
             // BusId
             // 
@@ -238,45 +279,14 @@
             PeriodicMaintenance.ReadOnly = true;
             PeriodicMaintenance.Width = 125;
             // 
-            // groupBox1
+            // IsActive
             // 
-            groupBox1.Controls.Add(txtSearch);
-            groupBox1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(284, 160);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(358, 62);
-            groupBox1.TabIndex = 14;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Tìm Kiếm Thông Tin Xe";
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(16, 26);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(322, 27);
-            txtSearch.TabIndex = 0;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(317, 69);
-            label1.Name = "label1";
-            label1.Size = new Size(213, 38);
-            label1.TabIndex = 13;
-            label1.Text = "Quản Lý Xe Bus";
-            // 
-            // btnRoutesManage
-            // 
-            btnRoutesManage.BackColor = SystemColors.ButtonHighlight;
-            btnRoutesManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnRoutesManage.Location = new Point(29, 242);
-            btnRoutesManage.Name = "btnRoutesManage";
-            btnRoutesManage.Size = new Size(191, 60);
-            btnRoutesManage.TabIndex = 12;
-            btnRoutesManage.Text = "Quản Lý Tuyến Xe";
-            btnRoutesManage.UseVisualStyleBackColor = false;
+            IsActive.DataPropertyName = "IsActive";
+            IsActive.HeaderText = "Trạng thái";
+            IsActive.MinimumWidth = 6;
+            IsActive.Name = "IsActive";
+            IsActive.ReadOnly = true;
+            IsActive.Width = 125;
             // 
             // BusManage
             // 
@@ -328,5 +338,6 @@
         private DataGridViewTextBoxColumn ManufacturingDate;
         private DataGridViewTextBoxColumn RegistrationDate;
         private DataGridViewTextBoxColumn PeriodicMaintenance;
+        private DataGridViewTextBoxColumn IsActive;
     }
 }

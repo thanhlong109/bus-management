@@ -51,12 +51,14 @@
             txtBusID = new TextBox();
             btnUpdate = new Button();
             btnCancel = new Button();
+            label13 = new Label();
+            cbStatus = new ComboBox();
             SuspendLayout();
             // 
             // cbPeriodic
             // 
             cbPeriodic.FormattingEnabled = true;
-            cbPeriodic.Location = new Point(380, 415);
+            cbPeriodic.Location = new Point(380, 412);
             cbPeriodic.Name = "cbPeriodic";
             cbPeriodic.Size = new Size(151, 28);
             cbPeriodic.TabIndex = 52;
@@ -100,7 +102,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(539, 423);
+            label10.Location = new Point(539, 420);
             label10.Name = "label10";
             label10.Size = new Size(52, 20);
             label10.TabIndex = 47;
@@ -128,7 +130,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(152, 418);
+            label8.Location = new Point(152, 415);
             label8.Name = "label8";
             label8.Size = new Size(179, 25);
             label8.TabIndex = 41;
@@ -138,7 +140,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(194, 322);
+            label7.Location = new Point(194, 318);
             label7.Name = "label7";
             label7.Size = new Size(137, 25);
             label7.TabIndex = 40;
@@ -148,7 +150,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(185, 371);
+            label6.Location = new Point(185, 369);
             label6.Name = "label6";
             label6.Size = new Size(146, 25);
             label6.TabIndex = 39;
@@ -158,7 +160,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(229, 272);
+            label5.Location = new Point(229, 269);
             label5.Name = "label5";
             label5.Size = new Size(102, 25);
             label5.TabIndex = 38;
@@ -206,21 +208,21 @@
             // 
             // dtManufacturing
             // 
-            dtManufacturing.Location = new Point(380, 320);
+            dtManufacturing.Location = new Point(380, 316);
             dtManufacturing.Name = "dtManufacturing";
             dtManufacturing.Size = new Size(250, 27);
             dtManufacturing.TabIndex = 33;
             // 
             // dtRegistration
             // 
-            dtRegistration.Location = new Point(380, 369);
+            dtRegistration.Location = new Point(380, 367);
             dtRegistration.Name = "dtRegistration";
             dtRegistration.Size = new Size(250, 27);
             dtRegistration.TabIndex = 32;
             // 
             // txtEngine
             // 
-            txtEngine.Location = new Point(380, 270);
+            txtEngine.Location = new Point(380, 267);
             txtEngine.Name = "txtEngine";
             txtEngine.Size = new Size(137, 27);
             txtEngine.TabIndex = 31;
@@ -242,7 +244,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(305, 471);
+            btnUpdate.Location = new Point(293, 509);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(106, 29);
             btnUpdate.TabIndex = 53;
@@ -252,7 +254,7 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(485, 471);
+            btnCancel.Location = new Point(473, 509);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(106, 29);
             btnCancel.TabIndex = 54;
@@ -260,11 +262,31 @@
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(227, 463);
+            label13.Name = "label13";
+            label13.Size = new Size(104, 25);
+            label13.TabIndex = 55;
+            label13.Text = "Trạng thái:";
+            // 
+            // cbStatus
+            // 
+            cbStatus.FormattingEnabled = true;
+            cbStatus.Location = new Point(381, 460);
+            cbStatus.Name = "cbStatus";
+            cbStatus.Size = new Size(151, 28);
+            cbStatus.TabIndex = 56;
+            // 
             // UpdateBus
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 528);
+            ClientSize = new Size(800, 575);
+            Controls.Add(cbStatus);
+            Controls.Add(label13);
             Controls.Add(btnCancel);
             Controls.Add(btnUpdate);
             Controls.Add(cbPeriodic);
@@ -319,5 +341,7 @@
         private TextBox txtBusID;
         private Button btnUpdate;
         private Button btnCancel;
+        private Label label13;
+        private ComboBox cbStatus;
     }
 }

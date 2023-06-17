@@ -18,8 +18,9 @@ namespace BusManagement
         TblBu busData;
         BusServices _services;
         BusRouteServices _routeServices;
+        
 
-        public UpdateBus(TblBu bus)
+        public UpdateBus(TblBu bus, bool isActive)
         {
             busData = bus;
             InitializeComponent();
@@ -29,11 +30,14 @@ namespace BusManagement
             txtBusID.Text = busData.BusId;
             txtNumePlate.Text = busData.NumberPlate;
             cbBustype.SelectedItem = busData.BusType.ToString();
+            cbRoute.Text = busData.RoutesId;
             txtSeat.Text = busData.SeatQuantity.ToString();
             txtEngine.Text = busData.EngineOuput.ToString();
             cbPeriodic.SelectedItem = busData.PeriodicMaintenance.ToString();
             dtManufacturing.Value = busData.ManufacturingDate.Value;
             dtRegistration.Value = busData.RegistrationDate.Value;
+            cbStatus.SelectedItem = busData.IsActive;
+
         }
 
         private void loadCBData()
@@ -46,6 +50,8 @@ namespace BusManagement
             cbBustype.SelectedIndex = 0;
             cbPeriodic.Items.AddRange(new string[] { "1", "3", "6", "8", "12", "18", "24" });
             cbPeriodic.SelectedIndex = 0;
+            cbStatus.Items.AddRange(new string[] { "Hoat dong", "Khong hoat dong" });
+            cbStatus.SelectedIndex = 0;
         }
 
 
@@ -79,10 +85,10 @@ namespace BusManagement
                 {
                     if (!
                         ((busType == "co nho" && seatQuantityValue <= 20) ||
-                        ((busType == "co vua" && seatQuantityValue >= 20) && 
+                        ((busType == "co vua" && seatQuantityValue >= 20) &&
                         (busType == "co vua" && seatQuantityValue <= 35)) ||
-                        (busType == "co lon" && seatQuantityValue >= 35) || 
-                        (busType =="co lon" && seatQuantityValue >60)))
+                        (busType == "co lon" && seatQuantityValue >= 35) ||
+                        (busType == "co lon" && seatQuantityValue > 60)))
                     {
                         MessageBox.Show("Vui lòng chọn số ghế phù hợp với cỡ xe !!! " +
                             "(cỡ nhỏ <= 20, cỡ vừa <= 35, cỡ lớn <= 60)", "Thông báo", MessageBoxButtons.OK);
@@ -110,8 +116,8 @@ namespace BusManagement
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form busmanage = new BusManage();
-            busmanage.ShowDialog();
+            Form form = new BusManage();
+            form.ShowDialog();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -128,7 +134,14 @@ namespace BusManagement
                 _busUpdate.ManufacturingDate = dtManufacturing.Value;
                 _busUpdate.RegistrationDate = dtRegistration.Value;
                 _busUpdate.PeriodicMaintenance = int.Parse(cbPeriodic.SelectedItem.ToString());
-
+                if (cbStatus.SelectedItem.ToString() == "Hoat dong")
+                {
+                    _busUpdate.IsActive = true;
+                }
+                else
+                {
+                    _busUpdate.IsActive = false;
+                }
                 _services.Update(_busUpdate);
                 MessageBox.Show("Cập nhật xe bus thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //this.Close();
