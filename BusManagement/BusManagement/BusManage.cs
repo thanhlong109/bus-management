@@ -53,6 +53,7 @@ namespace BusManagement
 
         }
 
+        
 
         private void dgvListBus_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -69,12 +70,12 @@ namespace BusManagement
                     EngineOuput = int.Parse(row.Cells["EngineOuput"].Value.ToString()),
                     ManufacturingDate = DateTime.Parse(row.Cells["ManufacturingDate"].Value.ToString()),
                     RegistrationDate = DateTime.Parse(row.Cells["RegistrationDate"].Value.ToString()),
-                    PeriodicMaintenance = int.Parse(row.Cells["PeriodicMaintenance"].Value.ToString()),
-                    IsActive = bool.TryParse(row.Cells["IsActive"].Value.ToString(), out bool isActive)
+                    PeriodicMaintenance = int.Parse(row.Cells["PeriodicMaintenance"].Value.ToString())
 
                 };
+                
                 this.Hide();
-                Form updateBus = new UpdateBus(selectedBus, selectedBus.IsActive);
+                Form updateBus = new UpdateBus(selectedBus);
                 updateBus.ShowDialog();
             }
         }
@@ -94,7 +95,7 @@ namespace BusManagement
             if (dgvListBus.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dgvListBus.SelectedRows[0];
-                TblBu selectedBus = new TblBu
+                selectedBus = new TblBu
                 {
                     BusId = selectedRow.Cells["BusId"].Value.ToString(),
                     NumberPlate = selectedRow.Cells["NumberPlate"].Value.ToString(),
@@ -105,11 +106,12 @@ namespace BusManagement
                     ManufacturingDate = DateTime.Parse(selectedRow.Cells["ManufacturingDate"].Value.ToString()),
                     RegistrationDate = DateTime.Parse(selectedRow.Cells["RegistrationDate"].Value.ToString()),
                     PeriodicMaintenance = int.Parse(selectedRow.Cells["PeriodicMaintenance"].Value.ToString()),
-                    IsActive = bool.TryParse(selectedRow.Cells["IsActive"].Value.ToString(), out bool isActive)
+
                 };
+                
 
                 this.Hide();
-                Form updateBus = new UpdateBus(selectedBus, selectedBus.IsActive);
+                Form updateBus = new UpdateBus(selectedBus);
                 updateBus.ShowDialog();
             }
             else
@@ -146,7 +148,7 @@ namespace BusManagement
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            var listBus = _busService.GetAllWithRoutes().Where(p => p.IsActive && p.NumberPlate.Contains(txtSearch.Text)).Select(p => new
+            var listBus = _busService.GetAllWithRoutes().Where(p => p.NumberPlate.Contains(txtSearch.Text.Trim())).Select(p => new
             {
                 p.BusId,
                 p.NumberPlate,
@@ -156,7 +158,9 @@ namespace BusManagement
                 p.ManufacturingDate,
                 p.RegistrationDate,
                 p.PeriodicMaintenance,
-                RoutesId = p.Routes.RoutesName
+                RoutesId = p.Routes.RoutesName,
+                IsActive = p.IsActive ? "Hoat dong" : "Khong hoat dong"
+
             });
 
             dgvListBus.DataSource = new BindingSource() { DataSource = listBus };

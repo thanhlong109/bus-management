@@ -20,13 +20,22 @@ namespace BusManagement
         BusRouteServices _routeServices;
         
 
-        public UpdateBus(TblBu bus, bool isActive)
+        public UpdateBus(TblBu bus)
         {
             busData = bus;
             InitializeComponent();
             _services = new BusServices();
             _routeServices = new BusRouteServices();
             loadCBData();
+            var isActive = _services.GetBusStatus(busData.BusId); // Phương thức để lấy trạng thái từ cơ sở dữ liệu
+            if (isActive)
+            {
+                cbStatus.SelectedIndex = 0; // Chọn trạng thái "Hoat dong"
+            }
+            else
+            {
+                cbStatus.SelectedIndex = 1; // Chọn trạng thái "Khong hoat dong"
+            }
             txtBusID.Text = busData.BusId;
             txtNumePlate.Text = busData.NumberPlate;
             cbBustype.SelectedItem = busData.BusType.ToString();
@@ -36,7 +45,6 @@ namespace BusManagement
             cbPeriodic.SelectedItem = busData.PeriodicMaintenance.ToString();
             dtManufacturing.Value = busData.ManufacturingDate.Value;
             dtRegistration.Value = busData.RegistrationDate.Value;
-            cbStatus.SelectedItem = busData.IsActive;
 
         }
 
