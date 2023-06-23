@@ -38,11 +38,10 @@
             btnAdd = new Button();
             dgvDriver = new DataGridView();
             groupBox1 = new GroupBox();
-            btnSearch = new Button();
             txtSearch = new TextBox();
             label1 = new Label();
             btnRoutesManage = new Button();
-            btnRefresh = new Button();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDriver).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -51,7 +50,8 @@
             // 
             btnLogout.BackColor = SystemColors.ButtonHighlight;
             btnLogout.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLogout.Location = new Point(37, 634);
+            btnLogout.ForeColor = Color.Red;
+            btnLogout.Location = new Point(37, 651);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(191, 60);
             btnLogout.TabIndex = 23;
@@ -62,50 +62,53 @@
             // 
             btnAccountManage.BackColor = SystemColors.ButtonHighlight;
             btnAccountManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAccountManage.Location = new Point(37, 494);
+            btnAccountManage.Location = new Point(37, 560);
             btnAccountManage.Name = "btnAccountManage";
             btnAccountManage.Size = new Size(191, 60);
             btnAccountManage.TabIndex = 22;
             btnAccountManage.Text = "Quản Lý Nhân Viên";
             btnAccountManage.UseVisualStyleBackColor = false;
+            btnAccountManage.Click += btnAccountManage_Click;
             // 
             // btnDriverManage
             // 
             btnDriverManage.BackColor = SystemColors.ButtonHighlight;
             btnDriverManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnDriverManage.Location = new Point(37, 428);
+            btnDriverManage.Location = new Point(37, 476);
             btnDriverManage.Name = "btnDriverManage";
             btnDriverManage.Size = new Size(191, 60);
             btnDriverManage.TabIndex = 21;
-            btnDriverManage.Text = "Quản lý Tài Xế";
+            btnDriverManage.Text = "Quản Lý Tài Xế";
             btnDriverManage.UseVisualStyleBackColor = false;
             // 
             // btnBusManage
             // 
             btnBusManage.BackColor = SystemColors.ButtonHighlight;
             btnBusManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBusManage.Location = new Point(37, 362);
+            btnBusManage.Location = new Point(37, 394);
             btnBusManage.Name = "btnBusManage";
             btnBusManage.Size = new Size(191, 60);
             btnBusManage.TabIndex = 20;
             btnBusManage.Text = "Quản Lý Xe";
             btnBusManage.UseVisualStyleBackColor = false;
+            btnBusManage.Click += btnBusManage_Click;
             // 
             // btnUnitManage
             // 
             btnUnitManage.BackColor = SystemColors.ButtonHighlight;
             btnUnitManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUnitManage.Location = new Point(37, 296);
+            btnUnitManage.Location = new Point(37, 313);
             btnUnitManage.Name = "btnUnitManage";
             btnUnitManage.Size = new Size(191, 60);
             btnUnitManage.TabIndex = 19;
             btnUnitManage.Text = "Quản Lý Đơn Vị";
             btnUnitManage.UseVisualStyleBackColor = false;
+            btnUnitManage.Click += btnUnitManage_Click;
             // 
             // btnDelete
             // 
             btnDelete.BackColor = SystemColors.Control;
-            btnDelete.Location = new Point(894, 651);
+            btnDelete.Location = new Point(1006, 651);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(126, 60);
             btnDelete.TabIndex = 18;
@@ -116,7 +119,7 @@
             // btnUpdate
             // 
             btnUpdate.BackColor = SystemColors.Control;
-            btnUpdate.Location = new Point(605, 651);
+            btnUpdate.Location = new Point(753, 651);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(125, 60);
             btnUpdate.TabIndex = 17;
@@ -127,7 +130,7 @@
             // btnAdd
             // 
             btnAdd.BackColor = SystemColors.Control;
-            btnAdd.Location = new Point(308, 651);
+            btnAdd.Location = new Point(489, 651);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(137, 60);
             btnAdd.TabIndex = 16;
@@ -149,25 +152,14 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(btnSearch);
             groupBox1.Controls.Add(txtSearch);
             groupBox1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(269, 162);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(463, 62);
+            groupBox1.Size = new Size(357, 62);
             groupBox1.TabIndex = 14;
             groupBox1.TabStop = false;
             groupBox1.Text = "Tìm Kiếm Thông Tin Tài Xế";
-            // 
-            // btnSearch
-            // 
-            btnSearch.Location = new Point(354, 26);
-            btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(93, 27);
-            btnSearch.TabIndex = 24;
-            btnSearch.Text = "Tìm Kiếm";
-            btnSearch.UseVisualStyleBackColor = true;
-            btnSearch.Click += btnSearch_Click;
             // 
             // txtSearch
             // 
@@ -175,16 +167,19 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(322, 27);
             txtSearch.TabIndex = 0;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(565, 56);
+            label1.ImageAlign = ContentAlignment.TopLeft;
+            label1.Location = new Point(644, 9);
             label1.Name = "label1";
             label1.Size = new Size(358, 38);
             label1.TabIndex = 13;
             label1.Text = "Phần Mềm Quản Lý Xe Bus";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // btnRoutesManage
             // 
@@ -196,24 +191,24 @@
             btnRoutesManage.TabIndex = 12;
             btnRoutesManage.Text = "Quản Lý Tuyến Xe";
             btnRoutesManage.UseVisualStyleBackColor = false;
+            btnRoutesManage.Click += btnRoutesManage_Click;
             // 
-            // btnRefresh
+            // label2
             // 
-            btnRefresh.BackColor = SystemColors.Control;
-            btnRefresh.Location = new Point(1186, 651);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(126, 60);
-            btnRefresh.TabIndex = 24;
-            btnRefresh.Text = "Tải lại ";
-            btnRefresh.UseVisualStyleBackColor = false;
-            btnRefresh.Click += btnRefresh_Click;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(744, 68);
+            label2.Name = "label2";
+            label2.Size = new Size(145, 28);
+            label2.TabIndex = 24;
+            label2.Text = "Quản Lý Tài Xế";
             // 
             // DriverManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1384, 723);
-            Controls.Add(btnRefresh);
+            Controls.Add(label2);
             Controls.Add(btnLogout);
             Controls.Add(btnAccountManage);
             Controls.Add(btnDriverManage);
@@ -250,7 +245,6 @@
         private TextBox txtSearch;
         private Label label1;
         private Button btnRoutesManage;
-        private Button btnSearch;
-        private Button btnRefresh;
+        private Label label2;
     }
 }

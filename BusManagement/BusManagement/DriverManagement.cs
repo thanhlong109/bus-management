@@ -19,9 +19,7 @@ namespace BusManagement
         public DriverManagement()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
-            btnDriverManage.Enabled = false;
-            btnDriverManage.BackColor = Color.Yellow;
+            formSettings();
             dgvDriver.ReadOnly = true;
 
             loadDgv();
@@ -46,31 +44,25 @@ namespace BusManagement
             dgvDriver.DataSource = listDriver;
 
         }
+
+        private void settingDataGridView()
+        {
+            dgvDriver.Columns[0].HeaderText = "Mã Tài Xế";
+            dgvDriver.Columns[1].HeaderText = "Tên Tài Xế";
+            dgvDriver.Columns[2].HeaderText = "Địa Chỉ";
+            dgvDriver.Columns[3].HeaderText = "Giới Tính";
+            dgvDriver.Columns[4].HeaderText = "Ngày Tháng Năm Sinh";
+            dgvDriver.Columns[5].HeaderText = "Tiền Lương";
+            dgvDriver.Columns[6].HeaderText = "Ngày Bắt Đầu Làm";
+            dgvDriver.Columns[7].HeaderText = "Mã Xe";
+            dgvDriver.Columns[8].HeaderText = "Tình Trạng Hoạt Động";
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form form = new AddDriver();
             form.ShowDialog();
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            var searchBox = txtSearch.Text.Trim().ToString();
-
-            var listSearch = _driverRepository.GetAll()
-                .Where(p => p.DriverName.Contains(searchBox)).Select(p => new
-                {
-                    p.DriverId,
-                    p.DriverName,
-                    p.Address,
-                    p.Gender,
-                    p.Dob,
-                    p.Salary,
-                    p.StartDate,
-                    p.BusId,
-                    p.IsActive,
-                }).ToList();
-            dgvDriver.DataSource = listSearch;
         }
 
         private void dgvDriver_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -158,9 +150,71 @@ namespace BusManagement
             }
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            loadDgv();
+            var search = _driverRepository.GetAll()
+                .Where(p => p.DriverName.Contains(txtSearch.Text)).Select(p => new
+                {
+                    p.DriverId,
+                    p.DriverName,
+                    p.Address,
+                    p.Gender,
+                    p.Dob,
+                    p.Salary,
+                    p.StartDate,
+                    p.BusId,
+                    p.IsActive,
+                }).ToList();
+            dgvDriver.DataSource = new BindingSource() { DataSource = search };
+        }
+
+        private void formSettings()
+        {
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            btnRoutesManage.Enabled = true;
+            btnRoutesManage.BackColor = Color.White;
+
+            btnUnitManage.Enabled = true;
+            btnUnitManage.BackColor = Color.White;
+
+            btnBusManage.Enabled = true;
+            btnBusManage.BackColor = Color.White;
+
+            btnDriverManage.Enabled = false;
+            btnDriverManage.BackColor = Color.LightYellow;
+
+            btnAccountManage.Enabled = true;
+            btnAccountManage.BackColor = Color.White;
+        }
+
+        private void btnRoutesManage_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new RoutesManagement();
+            form.ShowDialog();
+        }
+
+        private void btnUnitManage_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new TransportUnitManagement();
+            form.ShowDialog();
+        }
+
+        private void btnBusManage_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new BusManage();
+            form.ShowDialog();
+        }
+
+        private void btnAccountManage_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new AccountManagement();
+            form.ShowDialog();
         }
     }
 

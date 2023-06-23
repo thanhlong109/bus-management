@@ -83,8 +83,8 @@ namespace BusManagement
         {
             var item = new[]
             {
-                new { Text = "Đang làm", Value = "True" },
-                new { Text = "Nghỉ phép", Value = "False" },
+                new { Text = "Hoạt Động", Value = "True" },
+                new { Text = "Không Hoạt Động", Value = "False" },
             };
             cbIsActive.DisplayMember = "Text";
             cbIsActive.ValueMember = "Value";

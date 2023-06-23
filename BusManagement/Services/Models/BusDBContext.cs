@@ -101,9 +101,9 @@ namespace Services.Models
 
                 entity.Property(e => e.EngineOuput).HasColumnName("engine_ouput");
 
-                entity.Property(e => e.ExpirationDate)
+                entity.Property(e => e.RegistrationDate)
                     .HasColumnType("datetime")
-                    .HasColumnName("expiration_date");
+                    .HasColumnName("registration_date");
 
                 entity.Property(e => e.IsActive).HasColumnName("is_active");
 

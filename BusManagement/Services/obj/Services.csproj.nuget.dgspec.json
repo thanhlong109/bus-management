@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj": {}
+    "D:\\#HỌC ĐÊ\\PRN211\\FinalMerge\\BusManagement\\Services\\Services.csproj": {}
   },
   "projects": {
-    "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj": {
+    "D:\\#HỌC ĐÊ\\PRN211\\FinalMerge\\BusManagement\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj",
+        "projectUniqueName": "D:\\#HỌC ĐÊ\\PRN211\\FinalMerge\\BusManagement\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\Services.csproj",
+        "projectPath": "D:\\#HỌC ĐÊ\\PRN211\\FinalMerge\\BusManagement\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\#HỌC ĐÊ\\PRN211\\Assignment\\bus-management\\BusManagement\\Services\\obj\\",
+        "outputPath": "D:\\#HỌC ĐÊ\\PRN211\\FinalMerge\\BusManagement\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

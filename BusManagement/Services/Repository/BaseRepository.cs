@@ -10,8 +10,8 @@ namespace Services.Repository
 {
     public class BaseRepository<T> where T : class
     {
-        BusDBContext _context;
-        DbSet<T> _dbSet;
+        protected BusDBContext _context;
+        protected DbSet<T> _dbSet;
         public BaseRepository()
         {
             _context = new BusDBContext();
