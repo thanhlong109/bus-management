@@ -115,6 +115,7 @@ namespace BusManagement
             routes.EndPoint = txtTo.Text;
             routes.EstimatedTime = int.Parse(mTxtBreakTime.Text);
             routes.TransportUnitId = cbb.SelectedValue.ToString();
+            routes.IsActive = true;
             return routes;
         }
 

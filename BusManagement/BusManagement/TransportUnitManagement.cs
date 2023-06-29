@@ -16,22 +16,35 @@ namespace BusManagement
     {
         TransportUnitRepository _transportUnitService;
         TblTransportUnit selectedTransUnit = new TblTransportUnit();
-        public TransportUnitManagement()
+        TblAccount account;
+        public TransportUnitManagement(TblAccount account)
         {
+            this.account = account;
             InitializeComponent();
-            //var listTransportUnit = _transportUnitService.GetAll();
             _transportUnitService = new TransportUnitRepository();
-            //BusRouteRepository busRouteRepository = new BusRouteRepository();
-            //var listCombo = busRouteRepository.GetAll().Select(p => p.TransportUnit).ToList();
             formSettings();
             updateView();
+            if (account.Role.Equals("quan ly"))
+            {
+                btnAccountManage.Enabled = true;
+            }
+            else
+            {
+                btnAccountManage.Enabled = false;
+            }
+            dgvListTransportUnit.Columns[0].HeaderText = "Mã Đơn Vị";
+            dgvListTransportUnit.Columns[1].HeaderText = "Tên Đơn Vị";
+            dgvListTransportUnit.Columns[2].HeaderText = "Địa Chỉ";
+            dgvListTransportUnit.Columns[3].HeaderText = "Số Điện Thoại";
+            dgvListTransportUnit.Columns[4].HeaderText = "Email";
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Form form = new AddTransportUnit();
             form.ShowDialog();
+            updateView();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -57,8 +70,6 @@ namespace BusManagement
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            //var listTransportUnit = _transportUnitService.GetAll();
-            //TblTransportUnit transportUnitUpdate = listTransportUnit.FirstOrDefault();
             Form form = new UpdateTransportUnit(selectedTransUnit);
             form.ShowDialog();
             updateView();
@@ -74,7 +85,6 @@ namespace BusManagement
 
         private void dgvListTransportUnit_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
             btnXoa.Enabled = true;
             btnSua.Enabled = true;
             selectedTransUnit = _transportUnitService.GetAll().Where(p => p.TransportUnitId.Equals(dgvListTransportUnit.Rows[e.RowIndex].Cells[0].Value)).FirstOrDefault();
@@ -104,33 +114,41 @@ namespace BusManagement
 
             btnAccountManage.Enabled = true;
             btnAccountManage.BackColor = Color.White;
+
         }
 
         private void btnRoutesManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new RoutesManagement();
+            Form form = new RoutesManagement(account);
             form.ShowDialog();
         }
 
         private void btnBusManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new BusManage();
+            Form form = new BusManage(account);
             form.ShowDialog();
         }
 
         private void btnDriverManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new DriverManagement();
+            Form form = new DriverManagement(account);
             form.ShowDialog();
         }
 
         private void btnAccountManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new AccountManagement();
+            Form form = new AccountManagement(account);
+            form.ShowDialog();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new Login();
             form.ShowDialog();
         }
     }

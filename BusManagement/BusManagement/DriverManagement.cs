@@ -12,17 +12,28 @@ using System.Windows.Forms;
 
 namespace BusManagement
 {
+
     public partial class DriverManagement : Form
     {
         DriverRepository _driverRepository;
-
-        public DriverManagement()
+        TblAccount account;
+        public DriverManagement(TblAccount account)
         {
+            this.account = account;
             InitializeComponent();
             formSettings();
             dgvDriver.ReadOnly = true;
 
             loadDgv();
+            if (account.Role.Equals("quan ly"))
+            {
+                btnAccountManage.Enabled = true;
+            }
+            else
+            {
+                btnAccountManage.Enabled = false;
+            }
+            settingDataGridView();
         }
 
         private void loadDgv()
@@ -60,9 +71,9 @@ namespace BusManagement
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Form form = new AddDriver();
             form.ShowDialog();
+            loadDgv();
         }
 
         private void dgvDriver_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -91,8 +102,6 @@ namespace BusManagement
                     IsActive = Boolean.Parse(row.Cells["IsActive"].Value.ToString())
                 };
                 //truyen du lieu
-
-                this.Hide();
                 Form updateDriver = new UpdateDriver(selectedDriver);
                 updateDriver.ShowDialog();
             }
@@ -116,11 +125,9 @@ namespace BusManagement
                     IsActive = Boolean.Parse(selectedRow.Cells["IsActive"].Value.ToString())
                 };
                 //truyen du lieu
-
-                this.Hide();
                 Form updateDriver = new UpdateDriver(selectedDriver);
                 updateDriver.ShowDialog();
-
+                loadDgv();
             }
             else
             {
@@ -192,28 +199,35 @@ namespace BusManagement
         private void btnRoutesManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new RoutesManagement();
+            Form form = new RoutesManagement(account);
             form.ShowDialog();
         }
 
         private void btnUnitManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new TransportUnitManagement();
+            Form form = new TransportUnitManagement(account);
             form.ShowDialog();
         }
 
         private void btnBusManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new BusManage();
+            Form form = new BusManage(account);
             form.ShowDialog();
         }
 
         private void btnAccountManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new AccountManagement();
+            Form form = new AccountManagement(account);
+            form.ShowDialog();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new Login();
             form.ShowDialog();
         }
     }

@@ -123,9 +123,7 @@ namespace BusManagement
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form form = new BusManage();
-            form.ShowDialog();
+            this.Close();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -153,9 +151,7 @@ namespace BusManagement
                 _services.Update(_busUpdate);
                 MessageBox.Show("Cập nhật xe bus thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //this.Close();
-                this.Hide();
-                Form form = new BusManage();
-                form.ShowDialog();
+                this.Close();
             }
 
         }

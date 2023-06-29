@@ -109,10 +109,7 @@ namespace BusManagement
            
             
             MessageBox.Show("Save success", "Message", MessageBoxButtons.OK);
-            this.Hide();
-            Form form = new TransportUnitManagement();
-            form.ShowDialog();
-            
+            this.Close();
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -126,9 +123,7 @@ namespace BusManagement
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form form = new TransportUnitManagement();
-            form.ShowDialog();
+            this.Close();
         }
     }
 }

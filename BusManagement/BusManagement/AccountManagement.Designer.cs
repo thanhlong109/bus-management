@@ -52,9 +52,9 @@
             label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(644, 9);
             label1.Name = "label1";
-            label1.Size = new Size(405, 38);
+            label1.Size = new Size(358, 38);
             label1.TabIndex = 2;
-            label1.Text = "Phần Mềm Quản Lý Nhân Viên";
+            label1.Text = "Phần Mềm Quản Lý Xe Bus";
             // 
             // dgv_Account
             // 
@@ -137,6 +137,7 @@
             btnLogout.TabIndex = 12;
             btnLogout.Text = "Đăng Xuất";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnAdd
             // 

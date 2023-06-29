@@ -67,6 +67,7 @@
             btnLogout.TabIndex = 23;
             btnLogout.Text = "Đăng Xuất";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnAccountManage
             // 

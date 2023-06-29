@@ -63,9 +63,6 @@ namespace BusManagement
                 // Hiển thị thông báo thành công và đóng màn hình AddBus
                 MessageBox.Show("Thêm xe bus thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                this.Hide();
-                Form form = new BusManage();
-                form.ShowDialog();
             }
 
         }
@@ -146,9 +143,7 @@ namespace BusManagement
 
         private void txtHuyButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form busmanage = new BusManage();
-            busmanage.ShowDialog();
+            this.Close();
         }
 
         private void txtRefresh_Click(object sender, EventArgs e)

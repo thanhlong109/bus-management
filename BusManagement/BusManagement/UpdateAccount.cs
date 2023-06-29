@@ -36,9 +36,7 @@ namespace BusManagement
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form form = new AccountManagement();
-            form.ShowDialog();
+            this.Close();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -58,9 +56,7 @@ namespace BusManagement
 
                 accountRepository.Update(listAccount);
                 MessageBox.Show("Cập nhật thông tin thành công!", "Thông Báo", MessageBoxButtons.OK);
-                this.Hide();
-                Form form = new AccountManagement();
-                form.ShowDialog();
+                this.Close();
             }
         }
 

@@ -38,12 +38,10 @@ namespace BusManagement
 
             if (driver != null)
             {
-                _driverrepository.Create(driver);
+                new DriverRepository().Create(driver);
                 MessageBox.Show("Thêm tài xế thành công!", "Thông báo", 
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                Form form = new DriverManagement();
-                form.ShowDialog();
             }
 
         }
@@ -51,8 +49,6 @@ namespace BusManagement
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form form = new DriverManagement();
-            form.ShowDialog();
         }
 
         private void load_cbDriverGender()

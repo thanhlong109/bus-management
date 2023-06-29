@@ -17,8 +17,10 @@ namespace BusManagement
         BusRouteRepository routeRepository;
         TblBusRoute selectedRoute;
         Util u;
-        public RoutesManagement()
+        TblAccount account;
+        public RoutesManagement(TblAccount account)
         {
+            this.account = account;
             InitializeComponent();
             formSettings();
             routeRepository = new BusRouteRepository();
@@ -33,6 +35,14 @@ namespace BusManagement
             dgv.Columns[6].HeaderText = "Lộ Trình Lượt Đi";
             dgv.Columns[7].HeaderText = "Lộ Trình Lượt Về";
             u = new Util();
+            if (account.Role.Equals("quan ly"))
+            {
+                btnAccountManage.Enabled = true;
+            }
+            else
+            {
+                btnAccountManage.Enabled = false;
+            }
         }
         public void RoutesManagement_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -70,7 +80,8 @@ namespace BusManagement
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            routeRepository.Delete(selectedRoute);
+            selectedRoute.IsActive = false;
+            routeRepository.Update(selectedRoute);
             updateView();
         }
 
@@ -103,28 +114,35 @@ namespace BusManagement
         private void btnUnitManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new TransportUnitManagement();
+            Form form = new TransportUnitManagement(account);
             form.ShowDialog();
         }
 
         private void btnBusManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new BusManage();
+            Form form = new BusManage(account);
             form.ShowDialog();
         }
 
         private void btnDriverManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new DriverManagement();
+            Form form = new DriverManagement(account);
             form.ShowDialog();
         }
 
         private void btnAccountManage_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form form = new AccountManagement();
+            Form form = new AccountManagement(account);
+            form.ShowDialog();
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form form = new Login();
             form.ShowDialog();
         }
     }

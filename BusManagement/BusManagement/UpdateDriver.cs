@@ -47,8 +47,6 @@ namespace BusManagement
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form form = new DriverManagement();
-            form.ShowDialog();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -60,8 +58,6 @@ namespace BusManagement
                 MessageBox.Show("Sửa thông tin tài xế thành công!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                Form form = new DriverManagement();
-                form.ShowDialog();
             }
         }
 

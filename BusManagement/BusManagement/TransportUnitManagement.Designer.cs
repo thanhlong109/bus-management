@@ -34,7 +34,7 @@
             btnBusManage = new Button();
             btnDriverManage = new Button();
             btnAccountManage = new Button();
-            button6 = new Button();
+            btnLogout = new Button();
             btnThem = new Button();
             btnSua = new Button();
             btnXoa = new Button();
@@ -116,17 +116,18 @@
             btnAccountManage.UseVisualStyleBackColor = false;
             btnAccountManage.Click += btnAccountManage_Click;
             // 
-            // button6
+            // btnLogout
             // 
-            button6.BackColor = SystemColors.ButtonHighlight;
-            button6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.ForeColor = Color.Red;
-            button6.Location = new Point(37, 651);
-            button6.Name = "button6";
-            button6.Size = new Size(191, 60);
-            button6.TabIndex = 6;
-            button6.Text = "Đăng Xuất";
-            button6.UseVisualStyleBackColor = false;
+            btnLogout.BackColor = SystemColors.ButtonHighlight;
+            btnLogout.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogout.ForeColor = Color.Red;
+            btnLogout.Location = new Point(37, 651);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(191, 60);
+            btnLogout.TabIndex = 6;
+            btnLogout.Text = "Đăng Xuất";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnThem
             // 
@@ -208,7 +209,7 @@
             Controls.Add(btnXoa);
             Controls.Add(btnSua);
             Controls.Add(btnThem);
-            Controls.Add(button6);
+            Controls.Add(btnLogout);
             Controls.Add(btnAccountManage);
             Controls.Add(btnDriverManage);
             Controls.Add(btnBusManage);
@@ -232,7 +233,7 @@
         private Button btnBusManage;
         private Button btnDriverManage;
         private Button btnAccountManage;
-        private Button button6;
+        private Button btnLogout;
         private Button btnThem;
         private Button btnSua;
         private Button btnXoa;
