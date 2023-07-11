@@ -17,7 +17,11 @@ namespace BusManagement
     {
         TblBu busData;
         BusServices _services;
+<<<<<<< HEAD
         BusRouteRepository _routeServices;
+=======
+        BusRouteServices _routeServices;
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         
 
         public UpdateBus(TblBu bus)
@@ -25,7 +29,11 @@ namespace BusManagement
             busData = bus;
             InitializeComponent();
             _services = new BusServices();
+<<<<<<< HEAD
             _routeServices = new BusRouteRepository();
+=======
+            _routeServices = new BusRouteServices();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             loadCBData();
             var isActive = _services.GetBusStatus(busData.BusId); // Phương thức để lấy trạng thái từ cơ sở dữ liệu
             if (isActive)
@@ -123,7 +131,13 @@ namespace BusManagement
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             this.Close();
+=======
+            this.Hide();
+            Form form = new BusManage();
+            form.ShowDialog();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -151,7 +165,13 @@ namespace BusManagement
                 _services.Update(_busUpdate);
                 MessageBox.Show("Cập nhật xe bus thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //this.Close();
+<<<<<<< HEAD
                 this.Close();
+=======
+                this.Hide();
+                Form form = new BusManage();
+                form.ShowDialog();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             }
 
         }

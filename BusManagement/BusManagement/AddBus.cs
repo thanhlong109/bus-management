@@ -10,11 +10,19 @@ namespace BusManagement
     public partial class AddBus : Form
     {
         BusServices _busService = new BusServices();
+<<<<<<< HEAD
         BusRouteRepository _busRouteService;
         public AddBus()
         {
             InitializeComponent();
             _busRouteService = new BusRouteRepository();
+=======
+        BusRouteServices _busRouteService;
+        public AddBus()
+        {
+            InitializeComponent();
+            _busRouteService = new BusRouteServices();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             loadCBData();
         }
         private void loadCBData()
@@ -63,6 +71,12 @@ namespace BusManagement
                 // Hiển thị thông báo thành công và đóng màn hình AddBus
                 MessageBox.Show("Thêm xe bus thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
+<<<<<<< HEAD
+=======
+                this.Hide();
+                Form form = new BusManage();
+                form.ShowDialog();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             }
 
         }
@@ -143,7 +157,13 @@ namespace BusManagement
 
         private void txtHuyButton_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             this.Close();
+=======
+            this.Hide();
+            Form busmanage = new BusManage();
+            busmanage.ShowDialog();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         }
 
         private void txtRefresh_Click(object sender, EventArgs e)

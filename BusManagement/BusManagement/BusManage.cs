@@ -13,6 +13,7 @@ namespace BusManagement
 {
     public partial class BusManage : Form
     {
+<<<<<<< HEAD
         TblAccount account;
         BusServices _busService = new BusServices();
         TblBu selectedBus;
@@ -30,6 +31,14 @@ namespace BusManagement
             {
                 btnAccountManage.Enabled = false;
             }
+=======
+        BusServices _busService = new BusServices();
+        TblBu selectedBus;
+        public BusManage()
+        {
+            InitializeComponent();
+            loadDB();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         }
         public void loadDB()
         {
@@ -44,12 +53,22 @@ namespace BusManagement
                 p.RegistrationDate,
                 p.PeriodicMaintenance,
                 RoutesId = p.Routes.RoutesName,
+<<<<<<< HEAD
                 IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong"
+=======
+                IsActive = p.IsActive ? "Hoat dong" : "Khong hoat dong"
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             });
 
             dgvListBus.DataSource = new BindingSource() { DataSource = listBus };
         }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         private void dgvListBus_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -61,6 +80,11 @@ namespace BusManagement
 
         }
 
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         private void dgvListBus_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -79,17 +103,33 @@ namespace BusManagement
                     PeriodicMaintenance = int.Parse(row.Cells["PeriodicMaintenance"].Value.ToString())
 
                 };
+<<<<<<< HEAD
 
+=======
+                
+                this.Hide();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
                 Form updateBus = new UpdateBus(selectedBus);
                 updateBus.ShowDialog();
             }
         }
 
+<<<<<<< HEAD
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Form addBus = new AddBus();
             addBus.ShowDialog();
             loadDB();
+=======
+
+
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form addBus = new AddBus();
+            addBus.ShowDialog();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -110,9 +150,17 @@ namespace BusManagement
                     PeriodicMaintenance = int.Parse(selectedRow.Cells["PeriodicMaintenance"].Value.ToString()),
 
                 };
+<<<<<<< HEAD
                 Form updateBus = new UpdateBus(selectedBus);
                 updateBus.ShowDialog();
                 loadDB();
+=======
+                
+
+                this.Hide();
+                Form updateBus = new UpdateBus(selectedBus);
+                updateBus.ShowDialog();
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             }
             else
             {
@@ -120,6 +168,10 @@ namespace BusManagement
             }
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         private void btnRemove_Click(object sender, EventArgs e)
         {
             if (dgvListBus.SelectedRows.Count > 0)
@@ -143,6 +195,11 @@ namespace BusManagement
             }
         }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             var listBus = _busService.GetAllWithRoutes().Where(p => p.NumberPlate.Contains(txtSearch.Text.Trim())).Select(p => new
@@ -156,12 +213,17 @@ namespace BusManagement
                 p.RegistrationDate,
                 p.PeriodicMaintenance,
                 RoutesId = p.Routes.RoutesName,
+<<<<<<< HEAD
                 IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong"
+=======
+                IsActive = p.IsActive ? "Hoat dong" : "Khong hoat dong"
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
 
             });
 
             dgvListBus.DataSource = new BindingSource() { DataSource = listBus };
         }
+<<<<<<< HEAD
         private void formSettings()
         {
 
@@ -217,5 +279,8 @@ namespace BusManagement
             Form form = new Login();
             form.ShowDialog();
         }
+=======
+
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
     }
 }

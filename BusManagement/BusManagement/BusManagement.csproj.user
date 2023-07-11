@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Update="AccountManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -14,6 +15,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AddRoutes.cs">
+=======
+    <Compile Update="AddBus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BusManage.cs">
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="AddTransportUnit.cs">
@@ -31,6 +38,7 @@
     <Compile Update="RoutesManagement.cs">
       <SubType>Form</SubType>
     </Compile>
+<<<<<<< HEAD
     <Compile Update="TransportUnitManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -47,6 +55,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UpdateTransportUnit.cs">
+=======
+    <Compile Update="UpdateBus.cs">
+>>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
