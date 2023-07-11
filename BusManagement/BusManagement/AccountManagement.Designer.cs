@@ -65,6 +65,7 @@
             dgv_Account.RowTemplate.Height = 29;
             dgv_Account.Size = new Size(1076, 390);
             dgv_Account.TabIndex = 4;
+            dgv_Account.CellClick += dgv_Account_CellClick;
             dgv_Account.CellDoubleClick += dgv_Account_CellDoubleClick;
             // 
             // btnRoutesManage

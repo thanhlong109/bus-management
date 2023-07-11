@@ -16,7 +16,7 @@ namespace BusManagement
     public partial class UpdateDriver : Form
     {
         TblDriver driverData;
-        BusRepository _busrepository = new BusRepository();
+        BusServices _busrepository = new BusServices();
         DriverRepository _driverrepository = new DriverRepository();
 
         public UpdateDriver(TblDriver driver)
@@ -31,6 +31,15 @@ namespace BusManagement
             loadIsActive();
 
             //Load Driver Data For Update
+            var isActive = _driverrepository.GetDriverStatus(driverData.DriverId);// get status form db
+            if (isActive)
+            {
+                cbIsActive.SelectedIndex = 0; //Hoat dong
+            }
+            else
+            {
+                cbIsActive.SelectedIndex = 1; // Khong hoat dong
+            }
             txtDriverID.Text = driverData.DriverId;
             txtDriverID.ReadOnly = true;
             txtDriverName.Text = driverData.DriverName;
@@ -41,7 +50,6 @@ namespace BusManagement
             txtDriverSalary.Text = String.Format("{0:0.##}", Decimal.Parse(driverData.Salary.ToString()));
             cbDriverGender.SelectedItem = driverData.Gender.ToString();
             cbBusID.SelectedValue = driverData.BusId.ToString();
-            cbIsActive.SelectedValue = driverData.IsActive.ToString();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -52,9 +60,21 @@ namespace BusManagement
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var driver = getValidInput();
-            if (driver != null)
+            var _driverUpdate = _driverrepository.GetAll().Where(p => p.DriverId == driver.DriverId).FirstOrDefault();
+            
+            if (_driverUpdate != null)
             {
-                _driverrepository.Update(driver);
+                _driverUpdate.DriverName = driver.DriverName;
+                _driverUpdate.Address = driver.Address;
+                _driverUpdate.Gender = driver.Gender;
+                _driverUpdate.StartDate = driver.StartDate;
+                _driverUpdate.Dob = driver.Dob;
+                _driverUpdate.Salary = driver.Salary;
+                _driverUpdate.IsActive = driver.IsActive;
+                _driverUpdate.BusId = driver.BusId;
+
+                _driverrepository.Update(_driverUpdate);
+
                 MessageBox.Show("Sửa thông tin tài xế thành công!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -77,20 +97,23 @@ namespace BusManagement
 
         private void loadIsActive()
         {
-            var item = new[]
-            {
-                new { Text = "Hoạt Động", Value = "True" },
-                new { Text = "Không Hoạt Động", Value = "False" },
-            };
-            cbIsActive.DisplayMember = "Text";
-            cbIsActive.ValueMember = "Value";
-            cbIsActive.DataSource = item;
+            //var item = new[]
+            //{
+            //    new { Text = "Hoạt Động", Value = "True" },
+            //    new { Text = "Không Hoạt Động", Value = "False" },
+            //};
+            //cbIsActive.DisplayMember = "Text";
+            //cbIsActive.ValueMember = "Value";
+            //cbIsActive.DataSource = item;
+            cbIsActive.Items.AddRange(new string[] { "Hoat dong", "Khong hoat dong" });
+            cbIsActive.SelectedIndex = 0;
 
         }
 
         private TblDriver getValidInput()
         {
             // New driver
+            //var _busUpdate = _services.GetAll().Where(p => p.BusId == txtBusID.Text).FirstOrDefault();
             TblDriver driver = new TblDriver();
 
             // Add "ID"
@@ -162,7 +185,14 @@ namespace BusManagement
             driver.BusId = cbBusID.SelectedValue.ToString();
 
             //Add "isActive" to new Driver
-            driver.IsActive = Boolean.Parse(cbIsActive.SelectedValue.ToString());
+            if (cbIsActive.SelectedItem.ToString() == "Hoat dong")
+            {
+                driver.IsActive = true;
+            }
+            else
+            {
+                driver.IsActive &= false;
+            }
 
             return driver;
         }

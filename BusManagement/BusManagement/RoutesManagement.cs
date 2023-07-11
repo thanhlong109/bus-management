@@ -34,8 +34,9 @@ namespace BusManagement
             dgv.Columns[5].HeaderText = "Thời Gian giãn cách";
             dgv.Columns[6].HeaderText = "Lộ Trình Lượt Đi";
             dgv.Columns[7].HeaderText = "Lộ Trình Lượt Về";
+            dgv.Columns[8].HeaderText = "Trạng Thái Hoạt Động";
             u = new Util();
-            if (account.Role.Equals("quan ly"))
+            if (account.Role.Equals("Quản Lí"))
             {
                 btnAccountManage.Enabled = true;
             }
@@ -53,7 +54,21 @@ namespace BusManagement
         {
             btnRemove.Enabled = false;
             btnUpdate.Enabled = false;
-            dgv.DataSource = new BindingSource() { DataSource = new BusRouteRepository().GetAll().Where(p => p.IsActive == true).Select(p => new { p.RoutesId, p.TransportUnitId, p.RoutesName, p.StartTime, p.EndTime, p.EstimatedTime, p.StartPoint, p.EndPoint }) };
+            dgv.DataSource = new BindingSource()
+            {
+                DataSource = new BusRouteRepository().GetAll().Select(p => new
+                {
+                    p.RoutesId,
+                    p.TransportUnitId,
+                    p.RoutesName,
+                    p.StartTime,
+                    p.EndTime,
+                    p.EstimatedTime,
+                    p.StartPoint,
+                    p.EndPoint,
+                    IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong",
+                })
+            };
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -65,10 +80,22 @@ namespace BusManagement
 
         private void dgv_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Form form = new UpdateRoutes(selectedRoute);
+            form.ShowDialog();
+            updateView();
+        }
+
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             btnRemove.Enabled = true;
             btnUpdate.Enabled = true;
 
-            selectedRoute = routeRepository.GetAll().Where(p => p.RoutesId.Equals(dgv.Rows[e.RowIndex].Cells[0].Value)).FirstOrDefault();
+            if (e.RowIndex >= 0) // Kiểm tra hàng hợp lệ
+            {
+                dgv.Rows[e.RowIndex].Selected = true; // Chọn toàn bộ hàng được click
+            }
+
+            selectedRoute = new BusRouteRepository().GetAll().Where(p => p.RoutesId.Equals(dgv.Rows[e.RowIndex].Cells[0].Value)).FirstOrDefault();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -80,14 +107,36 @@ namespace BusManagement
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            selectedRoute.IsActive = false;
-            routeRepository.Update(selectedRoute);
+            DialogResult result = MessageBox.Show("Bạn có muốn hủy hoạt động tuyến xe này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                selectedRoute.IsActive = false;
+                routeRepository.Update(selectedRoute);
+                MessageBox.Show("Hủy thành công!!!", "Thông báo", MessageBoxButtons.OK);
+
+            }
             updateView();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            dgv.DataSource = new BindingSource() { DataSource = new BusRouteRepository().GetAll().Where(p => p.IsActive == true && p.RoutesName.Contains(txtSearch.Text)).Select(p => new { p.RoutesId, p.TransportUnitId, p.RoutesName, p.StartTime, p.EndTime, p.EstimatedTime, p.StartPoint, p.EndPoint }) };
+            dgv.DataSource = new BindingSource()
+            {
+                DataSource = new BusRouteRepository().GetAll().Where(p =>
+            p.RoutesName.Contains(txtSearch.Text)).Select(p =>
+            new
+            {
+                p.RoutesId,
+                p.TransportUnitId,
+                p.RoutesName,
+                p.StartTime,
+                p.EndTime,
+                p.EstimatedTime,
+                p.StartPoint,
+                p.EndPoint,
+                IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong",
+            })
+            };
         }
 
         private void formSettings()
@@ -145,5 +194,7 @@ namespace BusManagement
             Form form = new Login();
             form.ShowDialog();
         }
+
+        
     }
 }

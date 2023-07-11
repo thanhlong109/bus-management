@@ -24,7 +24,7 @@ namespace BusManagement
             _transportUnitService = new TransportUnitRepository();
             formSettings();
             updateView();
-            if (account.Role.Equals("quan ly"))
+            if (account.Role.Equals("Quản Lí"))
             {
                 btnAccountManage.Enabled = true;
             }
@@ -37,7 +37,7 @@ namespace BusManagement
             dgvListTransportUnit.Columns[2].HeaderText = "Địa Chỉ";
             dgvListTransportUnit.Columns[3].HeaderText = "Số Điện Thoại";
             dgvListTransportUnit.Columns[4].HeaderText = "Email";
-
+            dgvListTransportUnit.Columns[5].HeaderText = "Trạng thái hoạt động";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -54,13 +54,13 @@ namespace BusManagement
             selectedTransUnit = _transportUnitService.GetAll().FirstOrDefault(p => p.TransportUnitId.Equals(transportUnitID));
 
 
-            DialogResult result = MessageBox.Show("Do you want to delete this transport unit?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Bạn có muốn hủy hoạt động đơn vị này ? ", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 selectedTransUnit.IsActive = false;
                 _transportUnitService.Update(selectedTransUnit);
 
-                MessageBox.Show("Delete success", "Message", MessageBoxButtons.OK);
+                MessageBox.Show("Hủy thành công!!!", "Thông báo", MessageBoxButtons.OK);
                 updateView();
             }
 
@@ -80,19 +80,53 @@ namespace BusManagement
         {
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
-            dgvListTransportUnit.DataSource = new BindingSource() { DataSource = new TransportUnitRepository().GetAll().Where(p => p.IsActive == true).Select(p => new { p.TransportUnitId, p.TransportUnitName, p.Address, p.PhoneNumber, p.Email }) };
+            dgvListTransportUnit.DataSource = new BindingSource()
+            {
+                DataSource = new TransportUnitRepository().GetAll().Select(p => new
+                {
+                    p.TransportUnitId,
+                    p.TransportUnitName,
+                    p.Address,
+                    p.PhoneNumber,
+                    p.Email,
+                    IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong"
+                })
+            };
+        }
+
+        private void dgvListTransportUnit_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnXoa.Enabled = true;
+            btnSua.Enabled = true;
+            if (e.RowIndex >= 0) // Kiểm tra hàng hợp lệ
+            {
+                dgvListTransportUnit.Rows[e.RowIndex].Selected = true; // Chọn toàn bộ hàng được click
+            }
+            selectedTransUnit = new TransportUnitRepository().GetAll().Where(p => p.TransportUnitId.Equals(dgvListTransportUnit.Rows[e.RowIndex].Cells[0].Value)).FirstOrDefault();
         }
 
         private void dgvListTransportUnit_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnXoa.Enabled = true;
-            btnSua.Enabled = true;
-            selectedTransUnit = _transportUnitService.GetAll().Where(p => p.TransportUnitId.Equals(dgvListTransportUnit.Rows[e.RowIndex].Cells[0].Value)).FirstOrDefault();
+            Form form = new UpdateTransportUnit(selectedTransUnit);
+            form.ShowDialog();
+            updateView();
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e) //search by name
+        private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            dgvListTransportUnit.DataSource = new BindingSource() { DataSource = new TransportUnitRepository().GetAll().Where(p => p.IsActive == true && p.TransportUnitName.Contains(txtSearch.Text)).Select(p => new { p.TransportUnitId, p.TransportUnitName, p.Address, p.PhoneNumber, p.Email }) };
+            dgvListTransportUnit.DataSource = new BindingSource()
+            {
+                DataSource = new TransportUnitRepository().GetAll().Where(p =>
+            p.TransportUnitName.Contains(txtSearch.Text)).Select(p => new
+            {
+                p.TransportUnitId,
+                p.TransportUnitName,
+                p.Address,
+                p.PhoneNumber,
+                p.Email,
+                IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong",
+            })
+            };
         }
 
         private void formSettings()
@@ -151,5 +185,7 @@ namespace BusManagement
             Form form = new Login();
             form.ShowDialog();
         }
+
+        
     }
 }

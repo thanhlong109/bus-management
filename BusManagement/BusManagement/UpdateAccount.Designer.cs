@@ -124,10 +124,10 @@
             // 
             // dtpDob
             // 
-            dtpDob.Location = new Point(681, 159);
+            dtpDob.Location = new Point(703, 159);
             dtpDob.Margin = new Padding(3, 4, 3, 4);
             dtpDob.Name = "dtpDob";
-            dtpDob.Size = new Size(228, 27);
+            dtpDob.Size = new Size(206, 27);
             dtpDob.TabIndex = 53;
             // 
             // txtFullName

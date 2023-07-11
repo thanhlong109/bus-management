@@ -149,7 +149,7 @@
             dgvDriver.Size = new Size(1076, 390);
             dgvDriver.TabIndex = 15;
             dgvDriver.CellClick += dgvDriver_CellClick;
-            dgvDriver.CellContentDoubleClick += dgvDriver_CellContentDoubleClick;
+            dgvDriver.CellDoubleClick += dgvDriver_CellDoubleClick;
             // 
             // groupBox1
             // 

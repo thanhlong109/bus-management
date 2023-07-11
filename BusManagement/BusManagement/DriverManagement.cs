@@ -25,7 +25,7 @@ namespace BusManagement
             dgvDriver.ReadOnly = true;
 
             loadDgv();
-            if (account.Role.Equals("quan ly"))
+            if (account.Role.Equals("Quản Lí"))
             {
                 btnAccountManage.Enabled = true;
             }
@@ -50,7 +50,7 @@ namespace BusManagement
                 p.Salary,
                 p.StartDate,
                 p.BusId,
-                p.IsActive,
+                IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong"
             }).ToList();
             dgvDriver.DataSource = listDriver;
 
@@ -84,28 +84,7 @@ namespace BusManagement
             }
         }
 
-        private void dgvDriver_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dgvDriver.Rows[e.RowIndex];
-                TblDriver selectedDriver = new TblDriver
-                {
-                    DriverId = row.Cells["DriverID"].Value.ToString(),
-                    DriverName = row.Cells["DriverName"].Value.ToString(),
-                    Address = row.Cells["Address"].Value.ToString(),
-                    StartDate = DateTime.Parse(row.Cells["StartDate"].Value.ToString()),
-                    Dob = DateTime.Parse(row.Cells["Dob"].Value.ToString()),
-                    Salary = Decimal.Parse(row.Cells["Salary"].Value.ToString()),
-                    Gender = row.Cells["Gender"].Value.ToString(),
-                    BusId = row.Cells["BusId"].Value.ToString(),
-                    IsActive = Boolean.Parse(row.Cells["IsActive"].Value.ToString())
-                };
-                //truyen du lieu
-                Form updateDriver = new UpdateDriver(selectedDriver);
-                updateDriver.ShowDialog();
-            }
-        }
+
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -122,7 +101,6 @@ namespace BusManagement
                     Salary = Decimal.Parse(selectedRow.Cells["Salary"].Value.ToString()),
                     Gender = selectedRow.Cells["Gender"].Value.ToString(),
                     BusId = selectedRow.Cells["BusId"].Value.ToString(),
-                    IsActive = Boolean.Parse(selectedRow.Cells["IsActive"].Value.ToString())
                 };
                 //truyen du lieu
                 Form updateDriver = new UpdateDriver(selectedDriver);
@@ -133,6 +111,7 @@ namespace BusManagement
             {
                 MessageBox.Show("Vui lòng chọn một hàng để cập nhật!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            loadDgv();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -143,18 +122,20 @@ namespace BusManagement
                 string driverId = dgvDriver.Rows[location].Cells["DriverID"].Value.ToString();
                 TblDriver selectedDriver = _driverRepository.GetAll().FirstOrDefault(p => p.DriverId.Equals(driverId));
 
-                DialogResult result = MessageBox.Show("Bạn muốn xóa tài xế này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Bạn muốn hủy hoạt động tài xế này?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    _driverRepository.Delete(selectedDriver);
-                    MessageBox.Show("Xóa thành công!!!", "Thông báo", MessageBoxButtons.OK);
+                    selectedDriver.IsActive = false;
+                    _driverRepository.Update(selectedDriver);
+                    MessageBox.Show("Hủy thành công!!!", "Thông báo", MessageBoxButtons.OK);
                     loadDgv();
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn một hàng để xóa", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("Vui lòng chọn một hàng để hủy", "Thông báo", MessageBoxButtons.OK);
             }
+            loadDgv();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -170,7 +151,7 @@ namespace BusManagement
                     p.Salary,
                     p.StartDate,
                     p.BusId,
-                    p.IsActive,
+                    IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong",
                 }).ToList();
             dgvDriver.DataSource = new BindingSource() { DataSource = search };
         }
@@ -229,6 +210,29 @@ namespace BusManagement
             this.Hide();
             Form form = new Login();
             form.ShowDialog();
+        }
+
+        private void dgvDriver_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvDriver.Rows[e.RowIndex];
+                TblDriver selectedDriver = new TblDriver
+                {
+                    DriverId = row.Cells["DriverID"].Value.ToString(),
+                    DriverName = row.Cells["DriverName"].Value.ToString(),
+                    Address = row.Cells["Address"].Value.ToString(),
+                    StartDate = DateTime.Parse(row.Cells["StartDate"].Value.ToString()),
+                    Dob = DateTime.Parse(row.Cells["Dob"].Value.ToString()),
+                    Salary = Decimal.Parse(row.Cells["Salary"].Value.ToString()),
+                    Gender = row.Cells["Gender"].Value.ToString(),
+                    BusId = row.Cells["BusId"].Value.ToString(),
+                };
+                //truyen du lieu
+                Form updateDriver = new UpdateDriver(selectedDriver);
+                updateDriver.ShowDialog();
+            }
+            loadDgv();
         }
     }
 

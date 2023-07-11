@@ -1,31 +1,17 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {}
+    "W:\\Work Space\\Bus_project\\BusManagement\\BusManagement\\BusManagement.csproj": {}
   },
   "projects": {
-    "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj": {
+    "W:\\Work Space\\Bus_project\\BusManagement\\BusManagement\\BusManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
+        "projectUniqueName": "W:\\Work Space\\Bus_project\\BusManagement\\BusManagement\\BusManagement.csproj",
         "projectName": "BusManagement",
-        "projectPath": "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\BusManagement\\obj\\",
-=======
-    "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\BusManagement\\BusManagement.csproj": {}
-  },
-  "projects": {
-    "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\BusManagement\\BusManagement.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\BusManagement\\BusManagement.csproj",
-        "projectName": "BusManagement",
-        "projectPath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\BusManagement\\BusManagement.csproj",
+        "projectPath": "W:\\Work Space\\Bus_project\\BusManagement\\BusManagement\\BusManagement.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\BusManagement\\obj\\",
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
+        "outputPath": "W:\\Work Space\\Bus_project\\BusManagement\\BusManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -42,13 +28,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-<<<<<<< HEAD
-              "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\Services\\Services.csproj": {
-                "projectPath": "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\Services\\Services.csproj"
-=======
-              "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\Services.csproj": {
-                "projectPath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\Services.csproj"
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
+              "W:\\Work Space\\Bus_project\\BusManagement\\Services\\Services.csproj": {
+                "projectPath": "W:\\Work Space\\Bus_project\\BusManagement\\Services\\Services.csproj"
               }
             }
           }
@@ -85,25 +66,14 @@
         }
       }
     },
-<<<<<<< HEAD
-    "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\Services\\Services.csproj": {
+    "W:\\Work Space\\Bus_project\\BusManagement\\Services\\Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\Services\\Services.csproj",
+        "projectUniqueName": "W:\\Work Space\\Bus_project\\BusManagement\\Services\\Services.csproj",
         "projectName": "Services",
-        "projectPath": "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\Services\\Services.csproj",
-        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\Services\\obj\\",
-=======
-    "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\Services.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\Services.csproj",
-        "projectName": "Services",
-        "projectPath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\Services.csproj",
+        "projectPath": "W:\\Work Space\\Bus_project\\BusManagement\\Services\\Services.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\Services\\obj\\",
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
+        "outputPath": "W:\\Work Space\\Bus_project\\BusManagement\\Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",

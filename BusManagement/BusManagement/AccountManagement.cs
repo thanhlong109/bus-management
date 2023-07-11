@@ -1,6 +1,7 @@
 ﻿using Services.Models;
 using Services.Repository;
 using System.Data;
+using System.Windows.Forms;
 
 namespace BusManagement
 {
@@ -20,13 +21,14 @@ namespace BusManagement
             loadData();
             dgv_Account.Columns[0].HeaderText = "Mã Nhân Viên";
             dgv_Account.Columns[1].HeaderText = "Tài Khoản";
-            dgv_Account.Columns[2].HeaderText = "Mật Khẩu";
-            dgv_Account.Columns[3].HeaderText = "Họ và Tên";
-            dgv_Account.Columns[4].HeaderText = "Ngày Tháng Năm Sinh";
-            dgv_Account.Columns[5].HeaderText = "Email";
-            dgv_Account.Columns[6].HeaderText = "Số Điện Thoại";
-            dgv_Account.Columns[7].HeaderText = "Chức Vụ";
-            if (acc.Role.Equals("quan ly"))
+            //dgv_Account.Columns[2].HeaderText = "Mật Khẩu";
+            dgv_Account.Columns[2].HeaderText = "Họ và Tên";
+            dgv_Account.Columns[3].HeaderText = "Ngày Tháng Năm Sinh";
+            dgv_Account.Columns[4].HeaderText = "Email";
+            dgv_Account.Columns[5].HeaderText = "Số Điện Thoại";
+            dgv_Account.Columns[6].HeaderText = "Chức Vụ";
+            dgv_Account.Columns[7].HeaderText = "Trạng Thái Hoạt Động";
+            if (acc.Role.ToString().Equals("Quản Lí"))
             {
                 btnAccountManage.Enabled = true;
             }
@@ -34,6 +36,7 @@ namespace BusManagement
             {
                 btnAccountManage.Enabled = false;
             }
+
         }
 
         private void loadData()
@@ -41,16 +44,17 @@ namespace BusManagement
             btnRemove.Enabled = false;
             btnUpdate.Enabled = false;
 
-            var listAccount = new AccountRepository().GetAll().Where(p => p.IsActive == true).Select(p => new
+            var listAccount = new AccountRepository().GetAll().Select(p => new
             {
                 p.AccountId,
                 p.Username,
-                p.Password,
+                //p.Password,
                 p.FullName,
                 p.Dob,
                 p.Email,
                 p.PhoneNumber,
-                p.Role
+                p.Role,
+                IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong"
             });
             dgv_Account.DataSource = new BindingSource() { DataSource = listAccount };
         }
@@ -64,14 +68,16 @@ namespace BusManagement
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn muốn xóa hàng này?", "Thông báo",
+            DialogResult result = MessageBox.Show("Bạn muốn hủy hoạt động tài khoản ?", "Thông báo",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                accountRepository.Delete(account);
+                account.IsActive = false;
+                accountRepository.Update(account);
                 MessageBox.Show("Xóa thành công!!!", "Thông báo", MessageBoxButtons.OK);
-                loadData();
+                
             }
+            loadData();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -84,26 +90,37 @@ namespace BusManagement
 
         private void dgv_Account_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            Form form = new UpdateAccount(account);
+            form.ShowDialog();
+            loadData();
+
+        }
+
+        private void dgv_Account_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             btnRemove.Enabled = true;
             btnUpdate.Enabled = true;
-            account = accountRepository.GetAll().Where(
-                p => p.AccountId.Equals(dgv_Account.Rows[e.RowIndex].Cells[0].Value)).FirstOrDefault();
+            if (e.RowIndex >= 0) // Kiểm tra hàng hợp lệ
+            {
+                dgv_Account.Rows[e.RowIndex].Selected = true; // Chọn toàn bộ hàng được click
+            }
+            account = new AccountRepository().GetAll().Where(p => p.AccountId.Equals(dgv_Account.Rows[e.RowIndex].Cells[0].Value)).FirstOrDefault();
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            var search = new AccountRepository().GetAll().Where(p =>
-            p.IsActive == true && p.FullName.Contains(txtSearch.Text)).
+            var search = new AccountRepository().GetAll().Where(p => p.FullName.Contains(txtSearch.Text)).
             Select(p => new
             {
                 p.AccountId,
                 p.Username,
-                p.Password,
+                //p.Password,
                 p.FullName,
                 p.Dob,
                 p.Email,
                 p.PhoneNumber,
-                p.Role
+                p.Role,
+                IsActive = (bool)p.IsActive ? "Hoat dong" : "Khong hoat dong",
             });
             dgv_Account.DataSource = new BindingSource() { DataSource = search };
         }
@@ -162,6 +179,8 @@ namespace BusManagement
             Form form = new Login();
             form.ShowDialog();
         }
+
+        
     }
 }
 

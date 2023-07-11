@@ -85,6 +85,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(800, 511);
             Controls.Add(label1);
             Controls.Add(txtPassword);

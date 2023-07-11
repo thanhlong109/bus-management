@@ -1,4 +1,5 @@
-﻿using Services.Models;
+﻿using Microsoft.Identity.Client;
+using Services.Models;
 using Services.Repository;
 using System;
 using System.Collections.Generic;
@@ -17,32 +18,24 @@ namespace BusManagement
     {
         TblBu busData;
         BusServices _services;
-<<<<<<< HEAD
         BusRouteRepository _routeServices;
-=======
-        BusRouteServices _routeServices;
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
-        
+        private TblAccount account;
 
         public UpdateBus(TblBu bus)
         {
             busData = bus;
             InitializeComponent();
             _services = new BusServices();
-<<<<<<< HEAD
             _routeServices = new BusRouteRepository();
-=======
-            _routeServices = new BusRouteServices();
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             loadCBData();
-            var isActive = _services.GetBusStatus(busData.BusId); // Phương thức để lấy trạng thái từ cơ sở dữ liệu
+            var isActive = _services.GetBusStatus(busData.BusId);// get status form db
             if (isActive)
             {
-                cbStatus.SelectedIndex = 0; // Chọn trạng thái "Hoat dong"
+                cbStatus.SelectedIndex = 0; //Hoat dong
             }
             else
             {
-                cbStatus.SelectedIndex = 1; // Chọn trạng thái "Khong hoat dong"
+                cbStatus.SelectedIndex = 1; // Khong hoat dong
             }
             txtBusID.Text = busData.BusId;
             txtNumePlate.Text = busData.NumberPlate;
@@ -62,7 +55,7 @@ namespace BusManagement
             cbRoute.DisplayMember = "RoutesName";
             cbRoute.ValueMember = "RoutesId";
             cbRoute.DataSource = listCBRoute;
-            cbBustype.Items.AddRange(new string[] { "co nho", "co vua", "co lon" });
+            cbBustype.Items.AddRange(new string[] { "Cỡ nhỏ", "Cỡ vừa", "Cỡ lớn" });
             cbBustype.SelectedIndex = 0;
             cbPeriodic.Items.AddRange(new string[] { "1", "3", "6", "8", "12", "18", "24" });
             cbPeriodic.SelectedIndex = 0;
@@ -73,7 +66,7 @@ namespace BusManagement
 
         private bool checkInput()
         {
-            bool status = false;
+            //bool status = false;
             string busId = txtBusID.Text;
             string numberPlate = txtNumePlate.Text;
             string route = cbRoute.SelectedValue.ToString();
@@ -100,11 +93,11 @@ namespace BusManagement
                 else
                 {
                     if (!
-                        ((busType == "co nho" && seatQuantityValue <= 20) ||
-                        ((busType == "co vua" && seatQuantityValue >= 20) &&
-                        (busType == "co vua" && seatQuantityValue <= 35)) ||
-                        (busType == "co lon" && seatQuantityValue >= 35) ||
-                        (busType == "co lon" && seatQuantityValue > 60)))
+                        ((busType == "Cỡ nhỏ" && seatQuantityValue <= 20) ||
+                        ((busType == "Cỡ vừa" && seatQuantityValue >= 20) &&
+                        (busType == "Cỡ vừa" && seatQuantityValue <= 35)) ||
+                        (busType == "Cỡ lớn" && seatQuantityValue >= 35) &&
+                        (busType == "Cỡ lớn" && seatQuantityValue <= 60)))
                     {
                         MessageBox.Show("Vui lòng chọn số ghế phù hợp với cỡ xe !!! " +
                             "(cỡ nhỏ <= 20, cỡ vừa <= 35, cỡ lớn <= 60)", "Thông báo", MessageBoxButtons.OK);
@@ -131,13 +124,7 @@ namespace BusManagement
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             this.Close();
-=======
-            this.Hide();
-            Form form = new BusManage();
-            form.ShowDialog();
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -164,14 +151,7 @@ namespace BusManagement
                 }
                 _services.Update(_busUpdate);
                 MessageBox.Show("Cập nhật xe bus thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //this.Close();
-<<<<<<< HEAD
                 this.Close();
-=======
-                this.Hide();
-                Form form = new BusManage();
-                form.ShowDialog();
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             }
 
         }

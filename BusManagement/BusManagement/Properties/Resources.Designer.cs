@@ -59,5 +59,25 @@ namespace BusManagement.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap bus {
+            get {
+                object obj = ResourceManager.GetObject("bus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap csm_eb11057_citarorange_05cd0584e8 {
+            get {
+                object obj = ResourceManager.GetObject("csm_eb11057-citarorange_05cd0584e8", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -24,6 +24,16 @@ namespace BusManagement
             InitializeComponent();
             _transportUnitRepository = new TransportUnitRepository();
             loadData();
+            loadIsActive();
+            var isActive = _transportUnitRepository.GetUnitStatus(transportUnitPara.TransportUnitId);// get status form db
+            if (isActive)
+            {
+                cbStatus.SelectedIndex = 0; //Hoat dong
+            }
+            else
+            {
+                cbStatus.SelectedIndex = 1; // Khong hoat dong
+            }
         }
 
         private void loadData()
@@ -35,6 +45,13 @@ namespace BusManagement
             txtDiaChi.Text = transportUnitPara.Address;
             txtSoDienThoai.Text = transportUnitPara.PhoneNumber;
             txtEmail.Text = transportUnitPara.Email;
+        }
+
+        private void loadIsActive()
+        {
+            cbStatus.Items.AddRange(new string[] { "Hoat dong", "Khong hoat dong" });
+            cbStatus.SelectedIndex = 0;
+
         }
         //private bool isIdExists(String id)
         //{
@@ -59,9 +76,40 @@ namespace BusManagement
             txtEmail.Text = txtEmail.Text.Trim();
             if (txtID.Text.Length == 0 || txtTenDonVi.Text.Length == 0 || txtDiaChi.Text.Length == 0 || txtSoDienThoai.Text.Length == 0 || txtEmail.Text.Length == 0)
             {
-                MessageBox.Show("Please fill in all the information!", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin !", "Thông báo", MessageBoxButtons.OK);
                 return null;
             }
+            else
+            {
+                if (11 < txtSoDienThoai.Text.Length || txtSoDienThoai.Text.Length < 10)
+                {
+                    MessageBox.Show("Vui lòng điền đủ số điện thoại !!!", "Thông báo", MessageBoxButtons.OK);
+                    return null;
+                }
+                else
+                {
+                    transportUnit.TransportUnitId = txtID.Text;
+                    string emailPattern = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
+                    if (!Regex.IsMatch(txtEmail.Text, emailPattern))
+                    {
+                        MessageBox.Show("Email không hợp lệ !!! (ví dụ: abc@edf.com)", "Thông báo", MessageBoxButtons.OK);
+                        return null;
+                    }
+                    else
+                    {
+                        if (cbStatus.SelectedItem.ToString() == "Hoat dong")
+                        {
+                            transportUnit.IsActive = true;
+                        }
+                        else
+                        {
+                            transportUnit.IsActive &= false;
+                        }
+                    }
+                }
+            }
+
+
 
             //string idPattern = @"^TU[0-9]{5}$";
             //if (!Regex.IsMatch(txtID.Text, idPattern))
@@ -76,17 +124,15 @@ namespace BusManagement
             //    return null;
             //}
 
-            transportUnit.TransportUnitId = txtID.Text;
-            string emailPattern = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
+
             //[A-Za-z0-9]*@ tùy chọn theo “[A-Za-z0-9]”, và kết thúc bằng một ký hiệu “@”
             //\\.[A-Za-z0-9] Sau domain là phần mở rộng của domain sau dấu chấm, ví dụ: (.com, .net, .org)
-            if (!Regex.IsMatch(txtEmail.Text, emailPattern))
-            {
-                MessageBox.Show("Please do not use special characters for the first character!", "Warning", MessageBoxButtons.OK);
-                return null;
-            }
-            transportUnit.Email = txtEmail.Text;
 
+
+
+
+
+            transportUnit.Email = txtEmail.Text;
             transportUnit.TransportUnitName = txtTenDonVi.Text;
             transportUnit.Address = txtDiaChi.Text;
             transportUnit.PhoneNumber = txtSoDienThoai.Text;
@@ -96,34 +142,29 @@ namespace BusManagement
         {
             var transportUnitInput = takeInput();
 
-            var transportUnitDB = _transportUnitRepository.GetAll().Where(p => p.TransportUnitId.Equals(transportUnitPara.TransportUnitId)).FirstOrDefault();
-            if (transportUnitDB != null)
+            if (transportUnitInput != null)
             {
-                transportUnitDB.TransportUnitId = transportUnitDB.TransportUnitId;
-                transportUnitDB.TransportUnitName = transportUnitInput.TransportUnitName;
-                transportUnitDB.Address = transportUnitInput.Address;
-                transportUnitDB.PhoneNumber = transportUnitInput.PhoneNumber;
-                transportUnitDB.Email = transportUnitInput.Email;
-                _transportUnitRepository.Update(transportUnitDB);
+                var transportUnitDB = _transportUnitRepository.GetAll().Where(p => p.TransportUnitId.Equals(transportUnitPara.TransportUnitId)).FirstOrDefault();
+                if (transportUnitDB != null)
+                {
+                    transportUnitDB.TransportUnitName = transportUnitInput.TransportUnitName;
+                    transportUnitDB.Address = transportUnitInput.Address;
+                    transportUnitDB.PhoneNumber = transportUnitInput.PhoneNumber;
+                    transportUnitDB.Email = transportUnitInput.Email;
+                    transportUnitDB.IsActive = transportUnitInput.IsActive;
+                    _transportUnitRepository.Update(transportUnitDB);
+                }
+                MessageBox.Show("Cập nhật thành công!!!", "Thông báo", MessageBoxButtons.OK);
+                this.Close();
             }
-           
-            
-            MessageBox.Show("Save success", "Message", MessageBoxButtons.OK);
-            this.Close();
+
         }
 
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            
-            txtTenDonVi.Text = "";
-            txtDiaChi.Text = "";
-            txtSoDienThoai.Text = "";
-            txtEmail.Text = "";
-        }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

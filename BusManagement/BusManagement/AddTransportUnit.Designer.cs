@@ -107,7 +107,7 @@
             // txtDienThoai
             // 
             txtDienThoai.Location = new Point(267, 209);
-            txtDienThoai.Mask = "0000 000 000";
+            txtDienThoai.Mask = "0000000000";
             txtDienThoai.Name = "txtDienThoai";
             txtDienThoai.Size = new Size(229, 27);
             txtDienThoai.TabIndex = 7;

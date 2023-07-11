@@ -16,7 +16,7 @@ namespace BusManagement
 {
     public partial class AddDriver : Form
     {
-        BusRepository _busrepository = new BusRepository();
+        BusServices _busService = new BusServices();
         DriverRepository _driverrepository = new DriverRepository();
         public AddDriver()
         {
@@ -39,7 +39,7 @@ namespace BusManagement
             if (driver != null)
             {
                 new DriverRepository().Create(driver);
-                MessageBox.Show("Thêm tài xế thành công!", "Thông báo", 
+                MessageBox.Show("Thêm tài xế thành công!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
@@ -59,7 +59,7 @@ namespace BusManagement
 
         private void load_cbBusID()
         {
-            var listCombo = _busrepository.GetAll().Select(p => new { p.BusId, p.NumberPlate }).ToList();
+            var listCombo = _busService.GetAll().Select(p => new { p.BusId, p.NumberPlate }).ToList();
             cbBusID.DisplayMember = "NumberPlate";
             cbBusID.ValueMember = "BusId";
             cbBusID.DataSource = listCombo;
@@ -89,7 +89,7 @@ namespace BusManagement
                 || String.IsNullOrEmpty(txtDriverSalary.Text.Trim())
                 )
             {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", 
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return null;
             }
@@ -99,7 +99,7 @@ namespace BusManagement
             if (!Regex.IsMatch(txtDriverID.Text.Trim(), idPattern))
             {
                 MessageBox.Show("Vui lòng điền ID theo cú pháp sau: D****. " +
-                    "Trong đó * là số. Ví Dụ: D1234 ", "Thông báo", 
+                    "Trong đó * là số. Ví Dụ: D1234 ", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return null;
             }
@@ -109,7 +109,7 @@ namespace BusManagement
                 .Where(p => p.DriverId.Equals(txtDriverID.Text.Trim().ToUpper())).FirstOrDefault();
             if (existedDriverID != null)
             {
-                MessageBox.Show("ID đã tồn tại!!!", "Thông báo", 
+                MessageBox.Show("ID đã tồn tại!!!", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return null;
             }

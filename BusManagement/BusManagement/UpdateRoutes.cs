@@ -26,6 +26,15 @@ namespace BusManagement
             routeRepo = new BusRouteRepository();
             LoadData();
             u = new Util();
+            var isActive = routeRepo.GetBusRouteStatus(routePara.RoutesId);// get status form db
+            if (isActive)
+            {
+                cbStatus.SelectedIndex = 0; //Hoat dong
+            }
+            else
+            {
+                cbStatus.SelectedIndex = 1; // Khong hoat dong
+            }
         }
         private void LoadData()
         {
@@ -46,7 +55,12 @@ namespace BusManagement
             cbb.ValueMember = "TransportUnitId";
             cbb.DataSource = list;
             cbb.SelectedValue = routePara.TransportUnitId;
+            cbStatus.Items.AddRange(new string[] { "Hoat dong", "Khong hoat dong" });
+            cbStatus.SelectedIndex = 0;
         }
+
+
+
         private TblBusRoute TakeInputValid()
         {
             txtFrom.Text = txtFrom.Text.Trim();
@@ -71,7 +85,7 @@ namespace BusManagement
             routes.StartTime = sTime;
 
             var eTime = u.GetTime(mTxtEndTime.Text);
-            if (sTime == null)
+            if (eTime == null)
             {
                 return null;
             }
@@ -99,6 +113,15 @@ namespace BusManagement
                 u.ShowNoiceBox("Lộ trình lượt về vui lòng không quá 100 ký tự!");
                 return null;
             }
+            if (cbStatus.SelectedItem.ToString() == "Hoat dong")
+            {
+                routes.IsActive = true;
+            }
+            else
+            {
+                routes.IsActive &= false;
+            }
+
             routes.EndPoint = txtTo.Text;
             routes.EstimatedTime = int.Parse(mTxtBreakTime.Text);
             routes.TransportUnitId = cbb.SelectedValue.ToString();
@@ -108,17 +131,23 @@ namespace BusManagement
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             var routeInput = TakeInputValid();
-            var routeDb = routeRepo.GetAll().Where(p => p.RoutesId.Equals(routePara.RoutesId)).FirstOrDefault();
-            routeDb.TransportUnitId = cbb.SelectedValue.ToString();
-            routeDb.StartPoint = routeInput.StartPoint;
-            routeDb.EndPoint = routeInput.EndPoint;
-            routeDb.RoutesName = routeInput.RoutesName;
-            routeDb.StartTime = routeInput.StartTime;
-            routeDb.EndTime = routeInput.EndTime;
-            routeDb.EstimatedTime = routeInput.EstimatedTime;
-            routeRepo.Update(routeDb);
-            u.ShowNoiceBox("Cập nhật thành công!");
-            this.Close();
+            
+            if (routeInput != null)
+            {
+                var routeDb = routeRepo.GetAll().Where(p => p.RoutesId.Equals(routePara.RoutesId)).FirstOrDefault();
+                routeDb.TransportUnitId = cbb.SelectedValue.ToString();
+                routeDb.StartPoint = routeInput.StartPoint;
+                routeDb.EndPoint = routeInput.EndPoint;
+                routeDb.RoutesName = routeInput.RoutesName;
+                routeDb.StartTime = routeInput.StartTime;
+                routeDb.EndTime = routeInput.EndTime;
+                routeDb.EstimatedTime = routeInput.EstimatedTime;
+                routeDb.IsActive = routeInput.IsActive;
+                routeRepo.Update(routeDb);
+                u.ShowNoiceBox("Cập nhật thành công!");
+                this.Close();
+            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

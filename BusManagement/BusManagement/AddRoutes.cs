@@ -84,7 +84,7 @@ namespace BusManagement
             routes.StartTime = sTime;
 
             var eTime = u.GetTime(mTxtEndTime.Text);
-            if (sTime == null)
+            if (eTime == null)
             {
                 return null;
             }

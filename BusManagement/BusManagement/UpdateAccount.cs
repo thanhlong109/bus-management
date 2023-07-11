@@ -101,6 +101,11 @@ namespace BusManagement
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return null;
             }
+            if (11 < txtPhoneNumber.Text.Length || txtPhoneNumber.Text.Length < 10)
+            {
+                MessageBox.Show("Vui lòng điền đủ số điện thoại !!!", "Thông báo", MessageBoxButtons.OK);
+                return null;
+            }
 
             // check phoneNumber only input 9-11 number
             string phoneNumberPattern = @"^[0-9]{9,11}$";

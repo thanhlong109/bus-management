@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "S9IIncgRAXx7VTsRlaKdtjyFHP3xldJlWFoSjGp1cuj3x5yDSbEXmdLV0vzb6LOPcXA8R0K4yThQYKdPovs9Ow==",
+  "dgSpecHash": "3rRcvKm23Fk9I/aqbo1MHdEjo42SsV7QJWI17wq1oqBePSomsRZ47B2mI6WuwjB8KtFqjb+pZ/5FYNoay1XP+w==",
   "success": true,
-  "projectFilePath": "E:\\Learn\\Learn_k5\\PRN211\\project-clone\\bus-management\\BusManagement\\BusManagement\\BusManagement.csproj",
-=======
-  "dgSpecHash": "HUKGad1uCDxKmAJata57brOkOZX4X6GRvZAIWN7bie9ZGswLqzZ+WuxIcWReRMzaaKY/R0Ty0ADTjW84lYyr3A==",
-  "success": true,
-  "projectFilePath": "W:\\Material\\Summer2023_CN5\\PRN211\\TeamProjectPrn\\BusManagement\\BusManagement\\BusManagement.csproj",
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
+  "projectFilePath": "W:\\Work Space\\Bus_project\\BusManagement\\BusManagement\\BusManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.core\\1.6.0\\azure.core.1.6.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",

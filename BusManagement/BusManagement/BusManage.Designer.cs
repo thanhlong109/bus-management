@@ -37,13 +37,6 @@
             btnUpdate = new Button();
             btnAdd = new Button();
             dgvListBus = new DataGridView();
-<<<<<<< HEAD
-=======
-            groupBox1 = new GroupBox();
-            txtSearch = new TextBox();
-            label1 = new Label();
-            btnRoutesManage = new Button();
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             BusId = new DataGridViewTextBoxColumn();
             RoutesId = new DataGridViewTextBoxColumn();
             NumberPlate = new DataGridViewTextBoxColumn();
@@ -54,14 +47,11 @@
             RegistrationDate = new DataGridViewTextBoxColumn();
             PeriodicMaintenance = new DataGridViewTextBoxColumn();
             IsActive = new DataGridViewTextBoxColumn();
-<<<<<<< HEAD
             groupBox1 = new GroupBox();
             txtSearch = new TextBox();
             label1 = new Label();
             btnRoutesManage = new Button();
             label2 = new Label();
-=======
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             ((System.ComponentModel.ISupportInitialize)dgvListBus).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -70,46 +60,31 @@
             // 
             btnLogout.BackColor = SystemColors.ButtonHighlight;
             btnLogout.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-<<<<<<< HEAD
             btnLogout.ForeColor = Color.Red;
             btnLogout.Location = new Point(37, 651);
-=======
-            btnLogout.Location = new Point(29, 572);
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(191, 60);
             btnLogout.TabIndex = 23;
             btnLogout.Text = "Đăng Xuất";
             btnLogout.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
             btnLogout.Click += btnLogout_Click;
-=======
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             // 
             // btnAccountManage
             // 
             btnAccountManage.BackColor = SystemColors.ButtonHighlight;
             btnAccountManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-<<<<<<< HEAD
             btnAccountManage.Location = new Point(37, 560);
-=======
-            btnAccountManage.Location = new Point(29, 506);
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             btnAccountManage.Name = "btnAccountManage";
             btnAccountManage.Size = new Size(191, 60);
             btnAccountManage.TabIndex = 22;
             btnAccountManage.Text = "Quản Lý Nhân Viên";
             btnAccountManage.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
             btnAccountManage.Click += btnAccountManage_Click;
-=======
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             // 
             // btnDriverManage
             // 
             btnDriverManage.BackColor = SystemColors.ButtonHighlight;
             btnDriverManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-<<<<<<< HEAD
             btnDriverManage.Location = new Point(37, 476);
             btnDriverManage.Name = "btnDriverManage";
             btnDriverManage.Size = new Size(191, 60);
@@ -125,22 +100,6 @@
             btnBusManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btnBusManage.ForeColor = SystemColors.ActiveCaptionText;
             btnBusManage.Location = new Point(37, 394);
-=======
-            btnDriverManage.Location = new Point(29, 440);
-            btnDriverManage.Name = "btnDriverManage";
-            btnDriverManage.Size = new Size(191, 60);
-            btnDriverManage.TabIndex = 21;
-            btnDriverManage.Text = "Quản lý Tài Xế";
-            btnDriverManage.UseVisualStyleBackColor = false;
-            // 
-            // btnBusManage
-            // 
-            btnBusManage.BackColor = SystemColors.Info;
-            btnBusManage.Enabled = false;
-            btnBusManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBusManage.ForeColor = SystemColors.ActiveCaptionText;
-            btnBusManage.Location = new Point(29, 374);
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             btnBusManage.Name = "btnBusManage";
             btnBusManage.Size = new Size(191, 60);
             btnBusManage.TabIndex = 20;
@@ -151,33 +110,20 @@
             // 
             btnUnitManage.BackColor = SystemColors.ButtonHighlight;
             btnUnitManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-<<<<<<< HEAD
             btnUnitManage.Location = new Point(37, 313);
-=======
-            btnUnitManage.Location = new Point(29, 308);
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             btnUnitManage.Name = "btnUnitManage";
             btnUnitManage.Size = new Size(191, 60);
             btnUnitManage.TabIndex = 19;
             btnUnitManage.Text = "Quản Lý Đơn Vị";
             btnUnitManage.UseVisualStyleBackColor = false;
-<<<<<<< HEAD
             btnUnitManage.Click += btnUnitManage_Click;
-=======
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             // 
             // btnRemove
             // 
             btnRemove.BackColor = SystemColors.Control;
-<<<<<<< HEAD
             btnRemove.Location = new Point(1006, 651);
             btnRemove.Name = "btnRemove";
             btnRemove.Size = new Size(137, 60);
-=======
-            btnRemove.Location = new Point(778, 593);
-            btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(117, 52);
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             btnRemove.TabIndex = 18;
             btnRemove.Text = "Xóa";
             btnRemove.UseVisualStyleBackColor = false;
@@ -186,15 +132,9 @@
             // btnUpdate
             // 
             btnUpdate.BackColor = SystemColors.Control;
-<<<<<<< HEAD
             btnUpdate.Location = new Point(753, 651);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(137, 60);
-=======
-            btnUpdate.Location = new Point(558, 593);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(117, 52);
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             btnUpdate.TabIndex = 17;
             btnUpdate.Text = "Sửa";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -203,15 +143,9 @@
             // btnAdd
             // 
             btnAdd.BackColor = SystemColors.Control;
-<<<<<<< HEAD
             btnAdd.Location = new Point(489, 651);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(137, 60);
-=======
-            btnAdd.Location = new Point(334, 593);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(117, 52);
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             btnAdd.TabIndex = 16;
             btnAdd.Text = "Thêm";
             btnAdd.UseVisualStyleBackColor = false;
@@ -221,66 +155,15 @@
             // 
             dgvListBus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvListBus.Columns.AddRange(new DataGridViewColumn[] { BusId, RoutesId, NumberPlate, BusType, SeatQuantity, EngineOuput, ManufacturingDate, RegistrationDate, PeriodicMaintenance, IsActive });
-<<<<<<< HEAD
             dgvListBus.Location = new Point(269, 230);
             dgvListBus.Name = "dgvListBus";
             dgvListBus.RowHeadersWidth = 51;
             dgvListBus.RowTemplate.Height = 29;
             dgvListBus.Size = new Size(1076, 390);
-=======
-            dgvListBus.Location = new Point(284, 242);
-            dgvListBus.Name = "dgvListBus";
-            dgvListBus.RowHeadersWidth = 51;
-            dgvListBus.RowTemplate.Height = 29;
-            dgvListBus.Size = new Size(918, 324);
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             dgvListBus.TabIndex = 15;
             dgvListBus.CellClick += dgvListBus_CellClick;
             dgvListBus.CellDoubleClick += dgvListBus_CellDoubleClick;
             // 
-<<<<<<< HEAD
-=======
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(txtSearch);
-            groupBox1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            groupBox1.Location = new Point(284, 160);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(358, 62);
-            groupBox1.TabIndex = 14;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Tìm Kiếm Thông Tin Xe";
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(16, 26);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(322, 27);
-            txtSearch.TabIndex = 0;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(317, 69);
-            label1.Name = "label1";
-            label1.Size = new Size(213, 38);
-            label1.TabIndex = 13;
-            label1.Text = "Quản Lý Xe Bus";
-            // 
-            // btnRoutesManage
-            // 
-            btnRoutesManage.BackColor = SystemColors.ButtonHighlight;
-            btnRoutesManage.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnRoutesManage.Location = new Point(29, 242);
-            btnRoutesManage.Name = "btnRoutesManage";
-            btnRoutesManage.Size = new Size(191, 60);
-            btnRoutesManage.TabIndex = 12;
-            btnRoutesManage.Text = "Quản Lý Tuyến Xe";
-            btnRoutesManage.UseVisualStyleBackColor = false;
-            // 
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             // BusId
             // 
             BusId.DataPropertyName = "BusId";
@@ -371,7 +254,6 @@
             IsActive.ReadOnly = true;
             IsActive.Width = 125;
             // 
-<<<<<<< HEAD
             // groupBox1
             // 
             groupBox1.Controls.Add(txtSearch);
@@ -423,18 +305,12 @@
             label2.TabIndex = 25;
             label2.Text = "Quản Lý Xe";
             // 
-=======
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             // BusManage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-<<<<<<< HEAD
             ClientSize = new Size(1384, 723);
             Controls.Add(label2);
-=======
-            ClientSize = new Size(1231, 714);
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
             Controls.Add(btnLogout);
             Controls.Add(btnAccountManage);
             Controls.Add(btnDriverManage);
@@ -481,9 +357,6 @@
         private DataGridViewTextBoxColumn RegistrationDate;
         private DataGridViewTextBoxColumn PeriodicMaintenance;
         private DataGridViewTextBoxColumn IsActive;
-<<<<<<< HEAD
         private Label label2;
-=======
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
     }
 }

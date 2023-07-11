@@ -55,6 +55,7 @@
             dgvListTransportUnit.RowTemplate.Height = 29;
             dgvListTransportUnit.Size = new Size(1076, 390);
             dgvListTransportUnit.TabIndex = 0;
+            dgvListTransportUnit.CellClick += dgvListTransportUnit_CellClick;
             dgvListTransportUnit.CellDoubleClick += dgvListTransportUnit_CellDoubleClick;
             // 
             // btnRoutesManage

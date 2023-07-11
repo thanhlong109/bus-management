@@ -95,6 +95,7 @@
             dgv.RowTemplate.Height = 29;
             dgv.Size = new Size(1076, 390);
             dgv.TabIndex = 3;
+            dgv.CellClick += dgv_CellClick;
             dgv.CellContentDoubleClick += dgv_CellContentDoubleClick;
             // 
             // btnAdd

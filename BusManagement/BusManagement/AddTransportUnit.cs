@@ -19,7 +19,7 @@ namespace BusManagement
     public partial class AddTransportUnit : Form
     {
         TransportUnitRepository _transportUnitService = new TransportUnitRepository();
-        
+
         public AddTransportUnit()
         {
             InitializeComponent();
@@ -51,44 +51,51 @@ namespace BusManagement
 
             if (string.IsNullOrEmpty(tenDonVi) || string.IsNullOrEmpty(diaChi) || string.IsNullOrEmpty(soDienThoai) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(ID))
             {
-                MessageBox.Show("Please fill in all the information!", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("Các thông tin không được bỏ trống !!!", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
 
             string idPattern = @"^TU[0-9]{5}$";
             if (!Regex.IsMatch(ID, idPattern))
             {
-                MessageBox.Show("Please input a valid ID format (TUXXXXX)!", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("Mã đơn vị cần nhập theo format (TUXXXXX)!", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
 
             if (isIdExists(ID))
             {
-                MessageBox.Show("The ID already exists!", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("Id đã tồn tại trong hệ thống!!!", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
             transportUnit.TransportUnitId = ID;
 
             string emailPattern = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
             //[A-Za-z0-9]*@ tùy chọn theo “[A-Za-z0-9]”, và kết thúc bằng một ký hiệu “@”
-            //\\.[A-Za-z0-9] Sau domain là phần mở rộng của domain sau dấu chấm, ví dụ: (.com, .net, .org)
+            //\\.[A-Za-z0-9] sau domain là phần mở rộng của domain sau dấu chấm(.com, .net,...)
             if (!Regex.IsMatch(email, emailPattern))
             {
-                MessageBox.Show("Please do not use special characters for the first character!", "Warning", MessageBoxButtons.OK);
+                MessageBox.Show("Email không hợp lệ !!! (ví dụ: abc@edf.com)", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
+
+            if (11 < txtDienThoai.Text.Length || txtDienThoai.Text.Length < 10)
+            {
+                MessageBox.Show("Vui lòng điền đủ số điện thoại !!!", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }
+
             transportUnit.Email = email;
 
             transportUnit.TransportUnitName = tenDonVi;
             transportUnit.Address = diaChi;
-            transportUnit.PhoneNumber = soDienThoai;
 
+            transportUnit.PhoneNumber = soDienThoai;
             transportUnit.IsActive = is_Active;
             _transportUnitService.Create(transportUnit);
 
 
 
-            MessageBox.Show("Save success", "Message", MessageBoxButtons.OK);
+            MessageBox.Show("Tạo thành công!!!", "Thông báo", MessageBoxButtons.OK);
             this.Close();
 
 

@@ -2,11 +2,7 @@
 using Services.Models;
 using Services.Repository;
 
-<<<<<<< HEAD
 public class BusServices : BaseRepository<TblBu>
-=======
-public class BusServices : ServiceBase<TblBu>
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
 {
     public List<TblBu> GetAllWithRoutes()
     {
@@ -19,11 +15,7 @@ public class BusServices : ServiceBase<TblBu>
 
         if (bus != null)
         {
-<<<<<<< HEAD
             return (bool)bus.IsActive;   // true hoat dong, false khong hoat dong
-=======
-            return bus.IsActive;   // true hoat dong, false khong hoat dong
->>>>>>> b5478df7ccf23b2a79a411bcb39af457155b9311
         }
         return false;
     }

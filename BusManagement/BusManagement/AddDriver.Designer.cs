@@ -64,7 +64,7 @@
             // 
             txtDriverID.Location = new Point(152, 167);
             txtDriverID.Name = "txtDriverID";
-            txtDriverID.Size = new Size(125, 27);
+            txtDriverID.Size = new Size(112, 27);
             txtDriverID.TabIndex = 11;
             // 
             // txtDriverName
@@ -88,7 +88,7 @@
             // 
             dtpDriverDoB.Location = new Point(710, 168);
             dtpDriverDoB.Name = "dtpDriverDoB";
-            dtpDriverDoB.Size = new Size(250, 27);
+            dtpDriverDoB.Size = new Size(229, 27);
             dtpDriverDoB.TabIndex = 14;
             // 
             // label3
@@ -140,7 +140,7 @@
             // 
             txtDriverSalary.Location = new Point(619, 217);
             txtDriverSalary.Name = "txtDriverSalary";
-            txtDriverSalary.Size = new Size(125, 27);
+            txtDriverSalary.Size = new Size(151, 27);
             txtDriverSalary.TabIndex = 21;
             // 
             // label6
@@ -184,9 +184,9 @@
             label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label8.Location = new Point(487, 320);
             label8.Name = "label8";
-            label8.Size = new Size(100, 28);
+            label8.Size = new Size(74, 28);
             label8.TabIndex = 24;
-            label8.Text = "ID Xe Bus";
+            label8.Text = "Xe Bus";
             // 
             // btnRefresh
             // 
@@ -235,7 +235,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(972, 570);
+            ClientSize = new Size(984, 570);
             Controls.Add(label9);
             Controls.Add(btnRefresh);
             Controls.Add(btnAdd);
