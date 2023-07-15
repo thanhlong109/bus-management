@@ -38,7 +38,18 @@ namespace BusManagement
             return false; // Id không tồn tại trong danh sách
         }
 
-
+        private bool isEmailExist(String email)
+        {
+            var listTransportUnit = _transportUnitService.GetAll();
+            for (int i = 0; i < listTransportUnit.Count; i++)
+            {
+                if (listTransportUnit[i].Email.Equals(email))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void btnLuu_Click(object sender, EventArgs e)
         {
             var transportUnit = new TblTransportUnit();
@@ -69,27 +80,34 @@ namespace BusManagement
             }
             transportUnit.TransportUnitId = ID;
 
-            string emailPattern = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
-            //[A-Za-z0-9]*@ tùy chọn theo “[A-Za-z0-9]”, và kết thúc bằng một ký hiệu “@”
-            //\\.[A-Za-z0-9] sau domain là phần mở rộng của domain sau dấu chấm(.com, .net,...)
+            string emailPattern = "^\\w+@\\w+(\\.\\w+)+";
+           
             if (!Regex.IsMatch(email, emailPattern))
             {
                 MessageBox.Show("Email không hợp lệ !!! (ví dụ: abc@edf.com)", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
+            if (isEmailExist(email))
+            {
+                MessageBox.Show("Email đã tồn tại trong hệ thống!!!", "Thông báo", MessageBoxButtons.OK);
+                return;
+               
+            }
+            transportUnit.Email = email;
 
             if (11 < txtDienThoai.Text.Length || txtDienThoai.Text.Length < 10)
             {
                 MessageBox.Show("Vui lòng điền đủ số điện thoại !!!", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
+            transportUnit.PhoneNumber = soDienThoai;
 
-            transportUnit.Email = email;
 
             transportUnit.TransportUnitName = tenDonVi;
             transportUnit.Address = diaChi;
 
-            transportUnit.PhoneNumber = soDienThoai;
+            
+           
             transportUnit.IsActive = is_Active;
             _transportUnitService.Create(transportUnit);
 
